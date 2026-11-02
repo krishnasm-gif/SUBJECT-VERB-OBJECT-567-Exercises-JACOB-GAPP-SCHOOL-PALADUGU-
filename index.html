@@ -1,0 +1,2042 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>English Subject + Verb + Object (SVO) Practice Suite - తెలుగు వివరణతో</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Telugu and Playful English Kids UI -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;600;700;800&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans Telugu', 'Fredoka', sans-serif;
+            background: linear-gradient(135deg, #FEF08A 0%, #BAE6FD 50%, #FBCFE8 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            user-select: none;
+        }
+        .eng-font {
+            font-family: 'Fredoka', 'Noto Sans Telugu', sans-serif;
+        }
+        .fun-shadow {
+            box-shadow: 0 6px 0px rgba(15, 23, 42, 0.18);
+        }
+        .fun-shadow-sm {
+            box-shadow: 0 4px 0px rgba(15, 23, 42, 0.14);
+        }
+        .btn-bounce:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0px rgba(15, 23, 42, 0.15);
+        }
+        /* Memory Card Flip CSS */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .transform-style-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+        }
+        .backface-hidden {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .rotate-y-180 {
+            transform: rotateY(180deg);
+        }
+        /* Custom Scrollbar for Question Jumper */
+        .custom-scroll::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 10px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #f59e0b;
+            border-radius: 10px;
+        }
+        @keyframes popIn {
+            0% { transform: scale(0.92); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .animate-pop {
+            animation: popIn 0.28s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="text-slate-800 pb-14">
+
+    <!-- TOP STICKY HEADER & LIVE SCOREBOARD -->
+    <header class="bg-gradient-to-r from-indigo-700 via-purple-600 to-pink-600 text-white shadow-xl sticky top-0 z-40">
+        <!-- Prominent Institutional Banner: JACOB GAPP SCHOOL, PALADUGU by Bro. Balaswamy S.M -->
+        <div class="bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 text-indigo-950 py-2 px-3 border-b-4 border-indigo-900 shadow-sm">
+            <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1 text-center sm:text-left">
+                <div class="flex items-center justify-center gap-2.5">
+                    <span class="w-9 h-9 rounded-xl bg-indigo-900 text-yellow-300 flex items-center justify-center text-lg shadow font-extrabold shrink-0">🏫</span>
+                    <div>
+                        <div class="text-sm sm:text-lg font-extrabold tracking-wide text-indigo-950 uppercase leading-tight">
+                            JACOB GAPP SCHOOL, PALADUGU
+                        </div>
+                        <div class="text-xs sm:text-sm font-extrabold text-rose-700 leading-tight">
+                            ✨ by Bro. Balaswamy S.M ✨
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-indigo-950 text-yellow-300 text-[11px] sm:text-xs font-extrabold px-3 py-1 rounded-full border border-indigo-700 shadow-sm">
+                    🌟 7 SVO Exercise Types • 560+ Jumbled Questions • తెలుగు వివరణతో
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-3 py-2.5 flex flex-wrap items-center justify-between gap-2">
+            <!-- App Title -->
+            <div class="flex items-center gap-2.5">
+                <div class="w-12 h-12 rounded-2xl bg-yellow-300 text-indigo-950 flex flex-col items-center justify-center font-extrabold leading-none eng-font fun-shadow-sm border-2 border-white">
+                    <span class="text-xs text-indigo-900">S + V + O</span>
+                    <span class="text-[11px] text-pink-700 font-bold mt-0.5">English</span>
+                </div>
+                <div>
+                    <h1 class="text-base sm:text-xl font-extrabold tracking-wide leading-tight flex items-center gap-1.5 flex-wrap">
+                        <span>English S + V + O వాక్యాల అభ్యాసం</span>
+                        <span id="headerTotalBadge" class="bg-yellow-300 text-indigo-950 text-xs px-2.5 py-0.5 rounded-full font-extrabold">560 Qs</span>
+                    </h1>
+                    <p class="text-[11px] sm:text-xs text-yellow-100 font-medium">
+                        Subject (కర్త) + Verb (క్రియ) + Object (కర్మ) • తెలుగులో పూర్తి వ్యాకరణ వివరణతో
+                    </p>
+                </div>
+            </div>
+
+            <!-- Live Screen Timer & Submit Button -->
+            <div class="flex items-center gap-2 ml-auto">
+                <div class="bg-white/20 backdrop-blur-md border border-white/30 px-3 py-1.5 rounded-2xl flex items-center gap-2">
+                    <i class="fa-solid fa-stopwatch text-yellow-300 text-base animate-bounce"></i>
+                    <div>
+                        <div class="text-[10px] uppercase tracking-wider text-yellow-100 leading-none">⏱️ సమయం (Time)</div>
+                        <div id="liveTimerDisplay" class="font-mono font-extrabold text-sm sm:text-base leading-tight">00:00</div>
+                    </div>
+                </div>
+                <button onclick="switchTab('results')" class="bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-extrabold text-xs sm:text-sm px-3.5 py-2.5 rounded-2xl fun-shadow-sm btn-bounce flex items-center gap-1.5 transition border-2 border-emerald-200">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>ఫలితాలు & పంపు (Submit)</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- LIVE SCORE & ATTEMPT COUNTER STRIP -->
+        <div class="bg-indigo-950/85 backdrop-blur text-white py-1.5 px-3 border-t border-white/15">
+            <div class="max-w-5xl mx-auto grid grid-cols-5 gap-1.5 text-center text-xs sm:text-sm">
+                <div class="bg-indigo-800/80 rounded-xl py-1 px-1.5 flex flex-col sm:flex-row items-center justify-center sm:gap-1.5">
+                    <span class="text-indigo-200 text-[10px] sm:text-xs">📋 మొత్తం (Total):</span>
+                    <span id="statTotal" class="font-extrabold text-yellow-300 text-xs sm:text-base">560</span>
+                </div>
+                <div class="bg-blue-800/80 rounded-xl py-1 px-1.5 flex flex-col sm:flex-row items-center justify-center sm:gap-1.5">
+                    <span class="text-blue-200 text-[10px] sm:text-xs">✍️ ప్రయత్నించినవి (Attempted):</span>
+                    <span id="statAttempted" class="font-extrabold text-cyan-300 text-xs sm:text-base">0</span>
+                </div>
+                <div class="bg-amber-800/80 rounded-xl py-1 px-1.5 flex flex-col sm:flex-row items-center justify-center sm:gap-1.5">
+                    <span class="text-amber-200 text-[10px] sm:text-xs">⏳ మిగిలినవి (Not Attempted):</span>
+                    <span id="statUnattempted" class="font-extrabold text-amber-300 text-xs sm:text-base">560</span>
+                </div>
+                <div class="bg-emerald-800/80 rounded-xl py-1 px-1.5 flex flex-col sm:flex-row items-center justify-center sm:gap-1.5">
+                    <span class="text-emerald-200 text-[10px] sm:text-xs">✅ సరైనవి (Correct):</span>
+                    <span id="statCorrect" class="font-extrabold text-emerald-300 text-xs sm:text-base">0</span>
+                </div>
+                <div class="bg-rose-800/80 rounded-xl py-1 px-1.5 flex flex-col sm:flex-row items-center justify-center sm:gap-1.5">
+                    <span class="text-rose-200 text-[10px] sm:text-xs">❌ తప్పులు (Wrong):</span>
+                    <span id="statWrong" class="font-extrabold text-rose-300 text-xs sm:text-base">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-5xl mx-auto px-3 pt-4">
+
+        <!-- STUDENT INFO & SVO GRAMMAR GUIDE MODAL TRIGGER -->
+        <div class="bg-white rounded-3xl p-3.5 mb-4 border-4 border-amber-300 fun-shadow flex flex-col lg:flex-row items-center justify-between gap-3">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 w-full lg:w-auto flex-1">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">👧👦</span>
+                    <div class="flex-1">
+                        <label for="studentNameInput" class="block text-[11px] font-extrabold text-slate-500">విద్యార్థి పేరు (Student Name):</label>
+                        <input id="studentNameInput" type="text" placeholder="మీ పేరు రాయండి..." class="w-full font-bold text-indigo-950 bg-amber-50 border-2 border-amber-300 rounded-xl px-3 py-1.5 text-sm focus:outline-none focus:border-indigo-600">
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">🏫</span>
+                    <div class="flex-1">
+                        <label for="studentClassInput" class="block text-[11px] font-extrabold text-slate-500">తరగతి / సెక్షన్ (Class / Sec):</label>
+                        <input id="studentClassInput" type="text" placeholder="ఉదా: 4th Class - A" class="w-full font-bold text-indigo-950 bg-amber-50 border-2 border-amber-300 rounded-xl px-3 py-1.5 text-sm focus:outline-none focus:border-indigo-600">
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">🔢</span>
+                    <div class="flex-1">
+                        <label for="studentRollInput" class="block text-[11px] font-extrabold text-slate-500">రోల్ నంబర్ (Roll Number):</label>
+                        <input id="studentRollInput" type="text" placeholder="ఉదా: Roll No. 15" class="w-full font-bold text-indigo-950 bg-amber-50 border-2 border-amber-300 rounded-xl px-3 py-1.5 text-sm focus:outline-none focus:border-indigo-600">
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 w-full lg:w-auto justify-between lg:justify-end">
+                <span class="text-xs bg-purple-100 text-purple-900 font-extrabold px-3 py-2 rounded-xl border border-purple-300">
+                    <i class="fa-solid fa-shuffle mr-1"></i>Jumbled Questions!
+                </span>
+                <button onclick="openChartModal()" class="bg-pink-500 hover:bg-pink-600 text-white text-xs font-extrabold px-3.5 py-2 rounded-xl fun-shadow-sm btn-bounce flex items-center gap-1.5 shrink-0">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>SVO వ్యాకరణ పట్టిక (Grammar Guide)</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 4 MAIN NAVIGATION TABS -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-5">
+            <button id="tabBtn-quiz" onclick="switchTab('quiz')" class="tab-btn bg-indigo-600 text-white font-extrabold py-3 px-3 rounded-2xl fun-shadow btn-bounce flex items-center justify-center gap-2 border-2 border-indigo-800 text-sm sm:text-base">
+                <span class="text-xl">📝</span>
+                <div class="text-left leading-tight">
+                    <div>1. SVO Quiz (7 Types)</div>
+                    <div class="text-[11px] font-normal opacity-90">560+ వాక్యాల అభ్యాసం</div>
+                </div>
+            </button>
+            <button id="tabBtn-memory" onclick="switchTab('memory')" class="tab-btn bg-white text-slate-700 hover:bg-amber-50 font-extrabold py-3 px-3 rounded-2xl fun-shadow btn-bounce flex items-center justify-center gap-2 border-2 border-slate-200 text-sm sm:text-base">
+                <span class="text-xl">🧠</span>
+                <div class="text-left leading-tight">
+                    <div>2. మెమరీ గేమ్</div>
+                    <div class="text-[11px] font-normal opacity-75">Memory Cards</div>
+                </div>
+            </button>
+            <button id="tabBtn-match" onclick="switchTab('match')" class="tab-btn bg-white text-slate-700 hover:bg-amber-50 font-extrabold py-3 px-3 rounded-2xl fun-shadow btn-bounce flex items-center justify-center gap-2 border-2 border-slate-200 text-sm sm:text-base">
+                <span class="text-xl">🔗</span>
+                <div class="text-left leading-tight">
+                    <div>3. జతపరచండి</div>
+                    <div class="text-[11px] font-normal opacity-75">Match Following</div>
+                </div>
+            </button>
+            <button id="tabBtn-results" onclick="switchTab('results')" class="tab-btn bg-white text-slate-700 hover:bg-amber-50 font-extrabold py-3 px-3 rounded-2xl fun-shadow btn-bounce flex items-center justify-center gap-2 border-2 border-slate-200 text-sm sm:text-base">
+                <span class="text-xl">📊</span>
+                <div class="text-left leading-tight">
+                    <div>4. ఫలితాలు & Email</div>
+                    <div class="text-[11px] font-normal opacity-75">Results & Submit</div>
+                </div>
+            </button>
+        </div>
+
+        <!-- ================================================== -->
+        <!-- SECTION 1: 560+ ENGLISH SVO SENTENCES EXERCISE     -->
+        <!-- ================================================== -->
+        <section id="section-quiz" class="space-y-4">
+            <!-- Top Filter & Question Jumper Bar -->
+            <div class="bg-white rounded-3xl p-4 border-4 border-indigo-200 fun-shadow">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span id="qBadgeNumber" class="bg-indigo-600 text-white font-extrabold px-3.5 py-1 rounded-xl text-sm sm:text-base">
+                            ప్రశ్న 1 / 560
+                        </span>
+                        <span id="qWordLengthBadge" class="bg-purple-100 text-purple-900 font-extrabold px-3 py-1 rounded-xl text-xs border border-purple-300">
+                            Type 1: Telugu ➔ English SVO
+                        </span>
+                        <span id="qCategoryBadge" class="bg-amber-100 text-amber-900 font-bold px-3 py-1 rounded-xl text-xs border border-amber-300">
+                            సరైన సమాధానాన్ని ఎంచుకోండి
+                        </span>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <span id="qAttemptStatusBadge" class="text-xs font-extrabold px-3 py-1 rounded-full bg-slate-100 text-slate-600">
+                            <i class="fa-solid fa-lock-open mr-1"></i>ఒకసారి మాత్రమే అవకాశం (1 Attempt Only)
+                        </span>
+                        <button onclick="toggleQuestionPalette()" class="bg-indigo-100 hover:bg-indigo-200 text-indigo-900 font-extrabold text-xs px-3 py-1.5 rounded-xl transition border border-indigo-300">
+                            <i class="fa-solid fa-grip mr-1"></i>అన్ని ప్రశ్నలు (All 560)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Jump Filter Buttons by 7 Question Types -->
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5 text-xs">
+                    <div class="flex flex-wrap items-center gap-1.5">
+                        <span class="font-bold text-slate-500 mr-1">7 అభ్యాస రకాలు (Jump):</span>
+                        <button onclick="jumpToNextByType(1)" class="bg-purple-100 hover:bg-purple-200 text-purple-900 font-extrabold px-2.5 py-1 rounded-lg border border-purple-300 transition">
+                            1. తెలుగు ➔ Eng
+                        </button>
+                        <button onclick="jumpToNextByType(2)" class="bg-teal-100 hover:bg-teal-200 text-teal-900 font-extrabold px-2.5 py-1 rounded-lg border border-teal-300 transition">
+                            2. Eng ➔ తెలుగు
+                        </button>
+                        <button onclick="jumpToNextByType(3)" class="bg-pink-100 hover:bg-pink-200 text-pink-900 font-extrabold px-2.5 py-1 rounded-lg border border-pink-300 transition">
+                            3. Fill Verb (క్రియ)
+                        </button>
+                        <button onclick="jumpToNextByType(4)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-900 font-extrabold px-2.5 py-1 rounded-lg border border-emerald-300 transition">
+                            4. Fill Object (కర్మ)
+                        </button>
+                        <button onclick="jumpToNextByType(5)" class="bg-orange-100 hover:bg-orange-200 text-orange-900 font-extrabold px-2.5 py-1 rounded-lg border border-orange-300 transition">
+                            5. Fill Subject (కర్త)
+                        </button>
+                        <button onclick="jumpToNextByType(6)" class="bg-cyan-100 hover:bg-cyan-200 text-cyan-900 font-extrabold px-2.5 py-1 rounded-lg border border-cyan-300 transition">
+                            6. Unscramble SVO
+                        </button>
+                        <button onclick="jumpToNextByType(7)" class="bg-blue-100 hover:bg-blue-200 text-blue-900 font-extrabold px-2.5 py-1 rounded-lg border border-blue-300 transition">
+                            7. Identify S/V/O
+                        </button>
+                        <button onclick="jumpToNextUnattempted()" class="bg-amber-200 hover:bg-amber-300 text-amber-950 font-extrabold px-2.5 py-1 rounded-lg border border-amber-400 transition">
+                            ⏳ చేయని ప్రశ్న (Next Unattempted)
+                        </button>
+                    </div>
+                    <div id="progressTextPercent" class="font-extrabold text-indigo-700">0% పూర్తి చేశారు</div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="w-full bg-slate-100 h-3.5 rounded-full overflow-hidden border border-slate-300">
+                    <div id="quizProgressBar" class="bg-gradient-to-r from-emerald-400 via-teal-500 to-indigo-600 h-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+
+                <!-- Collapsible Question Palette (1 to 280) -->
+                <div id="questionPaletteContainer" class="hidden mt-3 pt-3 border-t border-slate-200">
+                    <div class="flex flex-wrap items-center justify-between text-xs text-slate-600 mb-2 gap-2">
+                        <span class="font-bold">ఏ ప్రశ్నకైనా వెళ్ళడానికి ఆ నంబర్ మీద నొక్కండి:</span>
+                        <div class="flex items-center gap-3 font-extrabold">
+                            <span class="flex items-center gap-1"><span class="w-3 h-3 rounded bg-emerald-500 inline-block"></span> సరైనది (Correct)</span>
+                            <span class="flex items-center gap-1"><span class="w-3 h-3 rounded bg-rose-500 inline-block"></span> తప్పు (Wrong)</span>
+                            <span class="flex items-center gap-1"><span class="w-3 h-3 rounded bg-slate-200 inline-block"></span> చేయనిది (Not Attempted)</span>
+                        </div>
+                    </div>
+                    <div id="questionPaletteGrid" class="grid grid-cols-8 sm:grid-cols-14 md:grid-cols-20 gap-1.5 max-h-52 overflow-y-auto custom-scroll p-1">
+                        <!-- Dynamically populated buttons 1..280 -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- MAIN QUESTION CARD -->
+            <div class="bg-white rounded-3xl p-5 sm:p-7 border-4 border-indigo-400 fun-shadow relative overflow-hidden">
+                <!-- Big Visual Question Display Box -->
+                <div class="bg-gradient-to-br from-indigo-50 via-amber-50 to-pink-50 border-2 border-indigo-200 rounded-3xl p-4 sm:p-6 mb-5 text-center relative">
+                    <!-- Speak English Sentence Audio Button -->
+                    <button onclick="speakCurrentQuestionEnglish()" title="ఆంగ్ల వాక్య ఉచ్చారణ వినండి (Listen English Sentence)" class="absolute top-3 right-3 bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 rounded-2xl text-xs sm:text-sm font-extrabold fun-shadow-sm btn-bounce flex items-center gap-1.5">
+                        <i class="fa-solid fa-volume-high text-yellow-300"></i>
+                        <span>🔊 Listen (వినండి)</span>
+                    </button>
+
+                    <div id="qVisualEmoji" class="text-4xl sm:text-5xl mb-1 mt-2 sm:mt-0">🍎</div>
+                    <div id="qVisualHint" class="text-xs sm:text-sm font-extrabold text-indigo-700 uppercase tracking-wider mb-1">
+                        Subject + Verb + Object (SVO)
+                    </div>
+                    <div id="qBigSymbol" class="eng-font text-2xl sm:text-4xl font-extrabold text-indigo-950 my-2 py-1 tracking-wide select-text">
+                        He eats an apple.
+                    </div>
+                    <h2 id="qPromptTelugu" class="text-base sm:text-xl font-extrabold text-slate-800 leading-snug mt-2">
+                        ప్రశ్న లోడ్ అవుతోంది...
+                    </h2>
+                </div>
+
+                <!-- 4 Jumbled Options Grid -->
+                <div id="optionsContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-5">
+                    <!-- Option buttons injected via JS -->
+                </div>
+
+                <!-- BACK & NEXT NAVIGATION BUTTONS (Mobile Friendly & Prominent) -->
+                <div class="flex items-center justify-between gap-3 pt-3 border-t-2 border-slate-100">
+                    <button id="btnPrevQ" onclick="navigateQuestion(-1)" class="flex-1 sm:flex-initial bg-amber-400 hover:bg-amber-500 disabled:opacity-40 disabled:pointer-events-none text-slate-950 font-extrabold py-3.5 px-6 rounded-2xl fun-shadow btn-bounce flex items-center justify-center gap-2 text-base sm:text-lg border-2 border-amber-500">
+                        <span>⬅️ వెనుకకు (Back)</span>
+                    </button>
+
+                    <div class="hidden md:flex flex-col items-center text-xs text-slate-500 font-bold text-center">
+                        <span>🔒 ప్రతి ప్రశ్నకు ఒక్కసారే అవకాశం! (Only 1 Attempt)</span>
+                        <span>ఆప్షన్ నొక్కిన వెంటనే తెలుగులో పూర్తి S + V + O వివరణ కనిపిస్తుంది</span>
+                    </div>
+
+                    <button id="btnNextQ" onclick="navigateQuestion(1)" class="flex-1 sm:flex-initial bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-3.5 px-6 rounded-2xl fun-shadow btn-bounce flex items-center justify-center gap-2 text-base sm:text-lg border-2 border-indigo-800">
+                        <span>ముందుకు (Next) ➡️</span>
+                    </button>
+                </div>
+
+                <!-- LONG CHILD-FRIENDLY TELUGU EXPLANATION BOX (Appears immediately after attempting) -->
+                <div id="explanationBox" class="hidden mt-6 rounded-3xl p-5 sm:p-6 border-4 animate-pop">
+                    <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+                        <div class="flex items-start gap-3">
+                            <div id="expStatusIcon" class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl shrink-0 font-bold">
+                                🎉
+                            </div>
+                            <div>
+                                <h3 id="expStatusTitle" class="text-lg sm:text-xl font-extrabold">
+                                    అద్భుతం! సరైన సమాధానం!
+                                </h3>
+                                <p id="expCorrectAnswerLine" class="text-sm sm:text-base font-bold mt-0.5"></p>
+                            </div>
+                        </div>
+
+                        <button onclick="speakCurrentQuestionEnglish()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-xs sm:text-sm px-3.5 py-2 rounded-xl fun-shadow-sm btn-bounce flex items-center gap-1.5">
+                            <i class="fa-solid fa-volume-high text-yellow-300"></i>
+                            <span>🔊 వాక్యాన్ని వినండి (Listen Sentence)</span>
+                        </button>
+                    </div>
+
+                    <!-- Detailed Step-by-Step Child-Friendly Telugu Explanation -->
+                    <div class="bg-white/95 rounded-2xl p-4 sm:p-5 border-2 border-indigo-200 space-y-4 text-slate-800">
+                        <div class="flex items-center gap-2 text-indigo-900 font-extrabold text-sm sm:text-base border-b-2 border-indigo-100 pb-2">
+                            <i class="fa-solid fa-graduation-cap text-xl text-pink-600"></i>
+                            <span>వివరణ / Explanation in Telugu (Subject + Verb + Object Breakdown):</span>
+                        </div>
+
+                        <!-- 4 Visual Breakdown Cards -->
+                        <div id="expFormulaCards" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2.5 text-center">
+                            <!-- Dynamically populated breakdown cards -->
+                        </div>
+
+                        <!-- Long Paragraph Explanation in Telugu -->
+                        <div id="expLongTextTelugu" class="text-sm sm:text-base leading-relaxed font-medium text-slate-800 space-y-2.5 bg-amber-50/90 p-4 rounded-2xl border-2 border-amber-200">
+                            <!-- Rich Telugu paragraph -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================== -->
+        <!-- SECTION 2: MEMORY CARD FLIP GAME                   -->
+        <!-- ================================================== -->
+        <section id="section-memory" class="hidden space-y-4">
+            <div class="bg-white rounded-3xl p-5 sm:p-6 border-4 border-pink-400 fun-shadow">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-extrabold text-pink-700 flex items-center gap-2">
+                            <span>🧠 English SVO వాక్యాల మెమరీ గేమ్ (Memory Game)</span>
+                        </h2>
+                        <p class="text-xs sm:text-sm text-slate-600 font-medium mt-0.5">
+                            కార్డులను తిప్పి, ఆంగ్ల S + V + O వాక్యాన్ని దాని సరైన తెలుగు అనువాదంతో జత చేయండి!
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <div class="bg-pink-100 text-pink-900 px-3 py-1.5 rounded-xl font-extrabold text-xs sm:text-sm border border-pink-300">
+                            జతలు (Pairs): <span id="memMatchesCount">0</span> / 6
+                        </div>
+                        <div class="bg-indigo-100 text-indigo-900 px-3 py-1.5 rounded-xl font-extrabold text-xs sm:text-sm border border-indigo-300">
+                            ప్రయత్నాలు (Moves): <span id="memMovesCount">0</span>
+                        </div>
+                        <button onclick="initMemoryGame()" class="bg-pink-600 hover:bg-pink-700 text-white font-extrabold px-4 py-2 rounded-xl text-xs sm:text-sm fun-shadow-sm btn-bounce">
+                            <i class="fa-solid fa-rotate mr-1"></i>కొత్త కార్డులు (New Game)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Memory Grid (12 cards = 6 pairs) -->
+                <div id="memoryGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 my-4">
+                    <!-- Injected via JS -->
+                </div>
+
+                <!-- Live Explanation of Last Matched Card Pair -->
+                <div id="memoryLastMatchBox" class="hidden bg-indigo-50 border-2 border-indigo-200 rounded-2xl p-3.5 text-sm font-bold text-indigo-950 my-2"></div>
+
+                <!-- Memory Win Banner -->
+                <div id="memoryWinBanner" class="hidden bg-emerald-100 border-4 border-emerald-400 rounded-2xl p-4 text-center animate-pop mt-4">
+                    <div class="text-3xl mb-1">🌟🎉🏆</div>
+                    <h3 class="text-lg sm:text-xl font-extrabold text-emerald-900">శభాష్! మీరు అన్ని English SVO వాక్యాల కార్డులను సరిగ్గా జత చేశారు!</h3>
+                    <p class="text-sm text-emerald-800 font-medium mt-1">మరో రౌండ్ ఆడటానికి 'కొత్త కార్డులు (New Game)' బటన్ నొక్కండి.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================== -->
+        <!-- SECTION 3: MATCH THE FOLLOWING GAME                -->
+        <!-- ================================================== -->
+        <section id="section-match" class="hidden space-y-4">
+            <div class="bg-white rounded-3xl p-5 sm:p-6 border-4 border-emerald-400 fun-shadow">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-extrabold text-emerald-700 flex items-center gap-2">
+                            <span>🔗 జతపరచండి (Match the Following Game)</span>
+                        </h2>
+                        <p class="text-xs sm:text-sm text-slate-600 font-medium mt-0.5">
+                            మొదట ఎడమ వైపున్న <b>English S+V+O Sentence</b> పై నొక్కి, ఆపై కుడి వైపున్న సరైన <b>తెలుగు అనువాదం</b> పై నొక్కండి!
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <div class="bg-emerald-100 text-emerald-900 px-3 py-1.5 rounded-xl font-extrabold text-xs sm:text-sm border border-emerald-300">
+                            ఈ రౌండ్ స్కోరు: <span id="matchScoreCount">0</span> / 6
+                        </div>
+                        <div class="bg-amber-100 text-amber-900 px-3 py-1.5 rounded-xl font-extrabold text-xs sm:text-sm border border-amber-300">
+                            గెలిచిన రౌండ్లు: <span id="matchRoundsWon">0</span>
+                        </div>
+                        <button onclick="initMatchGame()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-4 py-2 rounded-xl text-xs sm:text-sm fun-shadow-sm btn-bounce">
+                            <i class="fa-solid fa-shuffle mr-1"></i>కొత్త వాక్యాలు (New Round)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Match Columns -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6 my-4">
+                    <div>
+                        <div class="text-center font-extrabold text-indigo-900 bg-indigo-100 py-2 rounded-xl mb-2.5 text-xs sm:text-sm border border-indigo-200">
+                            ఆంగ్ల వాక్యం (English S + V + O Sentence)
+                        </div>
+                        <div id="matchLeftCol" class="space-y-2.5"></div>
+                    </div>
+                    <div>
+                        <div class="text-center font-extrabold text-pink-900 bg-pink-100 py-2 rounded-xl mb-2.5 text-xs sm:text-sm border border-pink-200">
+                            తెలుగు అనువాదం (Telugu Meaning - కర్త + కర్మ + క్రియ)
+                        </div>
+                        <div id="matchRightCol" class="space-y-2.5"></div>
+                    </div>
+                </div>
+
+                <!-- Live Telugu Feedback Box for Match Game -->
+                <div id="matchFeedbackBox" class="bg-amber-50 border-2 border-amber-300 rounded-2xl p-4 text-center text-sm sm:text-base font-bold text-slate-700">
+                    👆 జత చేయడానికి ఎడమ వైపు ఒక ఆంగ్ల వాక్యాన్ని, కుడి వైపు దాని తెలుగు అనువాదాన్ని ఎంచుకోండి!
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================== -->
+        <!-- SECTION 4: RESULTS & FORMSPREE SUBMISSION          -->
+        <!-- ================================================== -->
+        <section id="section-results" class="hidden space-y-5">
+            <div class="bg-white rounded-3xl p-5 sm:p-7 border-4 border-amber-400 fun-shadow">
+                <div class="text-center mb-6">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-yellow-300 text-4xl mb-2 fun-shadow-sm border-2 border-amber-500">
+                        🏆
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-indigo-950">
+                        విద్యార్థి ప్రోగ్రెస్ రిపోర్ట్ (Final Results Scorecard)
+                    </h2>
+                    <p class="text-sm text-slate-600 font-medium mt-1">
+                        English Subject + Verb + Object (SVO) అభ్యాస ఫలితాలు క్రింద చూడండి & ఇమెయిల్‌కు పంపండి.
+                    </p>
+                </div>
+
+                <!-- Detailed Stats Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3.5 mb-6">
+                    <div class="bg-indigo-50 border-2 border-indigo-200 rounded-2xl p-4 text-center">
+                        <div class="text-xs font-extrabold text-indigo-600 uppercase">📋 మొత్తం ప్రశ్నలు (Total Qs)</div>
+                        <div id="resTotalQs" class="text-2xl sm:text-3xl font-extrabold text-indigo-950 mt-1">280</div>
+                    </div>
+                    <div class="bg-blue-50 border-2 border-blue-200 rounded-2xl p-4 text-center">
+                        <div class="text-xs font-extrabold text-blue-600 uppercase">✍️ ప్రయత్నించినవి (Attempted)</div>
+                        <div id="resAttempted" class="text-2xl sm:text-3xl font-extrabold text-blue-900 mt-1">0</div>
+                    </div>
+                    <div class="bg-amber-50 border-2 border-amber-200 rounded-2xl p-4 text-center">
+                        <div class="text-xs font-extrabold text-amber-700 uppercase">⏳ చేయనివి (Not Attempted)</div>
+                        <div id="resNotAttempted" class="text-2xl sm:text-3xl font-extrabold text-amber-900 mt-1">280</div>
+                    </div>
+                    <div class="bg-emerald-50 border-2 border-emerald-200 rounded-2xl p-4 text-center">
+                        <div class="text-xs font-extrabold text-emerald-700 uppercase">✅ సరైన సమాధానాలు (Correct)</div>
+                        <div id="resCorrect" class="text-2xl sm:text-3xl font-extrabold text-emerald-900 mt-1">0</div>
+                    </div>
+                    <div class="bg-rose-50 border-2 border-rose-200 rounded-2xl p-4 text-center">
+                        <div class="text-xs font-extrabold text-rose-700 uppercase">❌ తప్పు సమాధానాలు (Wrong)</div>
+                        <div id="resWrong" class="text-2xl sm:text-3xl font-extrabold text-rose-900 mt-1">0</div>
+                    </div>
+                    <div class="bg-purple-50 border-2 border-purple-200 rounded-2xl p-4 text-center">
+                        <div class="text-xs font-extrabold text-purple-700 uppercase">⏱️ స్క్రీన్ సమయం (Screen Time)</div>
+                        <div id="resScreenTime" class="text-xl sm:text-2xl font-mono font-extrabold text-purple-900 mt-1">00:00</div>
+                    </div>
+                </div>
+
+                <!-- Mini Games & Accuracy Summary -->
+                <div class="bg-slate-50 border-2 border-slate-200 rounded-2xl p-4 mb-6 flex flex-wrap items-center justify-around gap-3 text-sm font-bold text-slate-700">
+                    <div>🧠 మెమరీ గేమ్ జతలు: <span id="resMemoryScore" class="text-pink-600 font-extrabold">0</span></div>
+                    <div>🔗 జతపరచుట గేమ్ స్కోరు: <span id="resMatchScore" class="text-emerald-600 font-extrabold">0</span></div>
+                    <div>🎯 ఖచ్చితత్వం (Percentage): <span id="resAccuracy" class="text-indigo-600 font-extrabold">0%</span></div>
+                </div>
+
+                <!-- FORMSPREE & EMAIL SUBMISSION BOX -->
+                <div class="bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 border-2 border-indigo-300 rounded-3xl p-5 text-center space-y-4">
+                    <div class="text-sm sm:text-base font-bold text-indigo-950">
+                        <i class="fa-solid fa-envelope-circle-check text-indigo-600 mr-1"></i>
+                        ఈ ఫలితాలను <b>balaswamysm@gmail.com</b> కు మరియు Formspree (<code>https://formspree.io/f/xqppgkaw</code>) కు పంపండి:
+                    </div>
+
+                    <div id="formspreeStatusBanner" class="hidden rounded-2xl p-3.5 text-sm font-extrabold"></div>
+
+                    <div class="flex flex-wrap items-center justify-center gap-3">
+                        <button id="btnSendFormspree" onclick="submitResultsToFormspree(false)" class="bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold py-3.5 px-6 rounded-2xl fun-shadow btn-bounce flex items-center gap-2 text-base border-2 border-emerald-700">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>ఇప్పుడే ఫలితాలు పంపండి (Submit Results)</span>
+                        </button>
+
+                        <button onclick="sendDirectMailtoFallback()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-3.5 px-5 rounded-2xl fun-shadow btn-bounce flex items-center gap-2 text-sm sm:text-base border-2 border-indigo-800">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>📧 Send Direct Email (balaswamysm@gmail.com)</span>
+                        </button>
+                    </div>
+                    <p class="text-xs text-slate-500 font-medium">
+                        గమనిక: మీరు ఈ ఫలితాల పేజీని తెరిచిన వెంటనే ఆటోమేటిక్‌గా కూడా Formspree (`https://formspree.io/f/xqppgkaw`) ద్వారా రిపోర్ట్ పంపబడుతుంది.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================================================== -->
+    <!-- MODAL: ENGLISH SVO GRAMMAR & SENTENCE GUIDE        -->
+    <!-- ================================================== -->
+    <div id="chartModal" class="fixed inset-0 bg-slate-900/75 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3">
+        <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] flex flex-col border-4 border-pink-400 fun-shadow overflow-hidden animate-pop">
+            <div class="bg-gradient-to-r from-pink-600 to-indigo-700 text-white px-5 py-3.5 flex items-center justify-between">
+                <h3 class="text-base sm:text-xl font-extrabold flex items-center gap-2">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                    <span>English Subject + Verb + Object (SVO) తెలుగు వ్యాకరణ పట్టిక</span>
+                </h3>
+                <button onclick="closeChartModal()" class="w-9 h-9 rounded-xl bg-white/20 hover:bg-white/30 flex items-center justify-center font-bold text-lg">
+                    ✕
+                </button>
+            </div>
+            <div class="p-4 sm:p-6 overflow-y-auto space-y-4 text-sm">
+                <div class="bg-amber-50 border-2 border-amber-300 p-4 rounded-2xl space-y-2 text-slate-800">
+                    <div class="font-extrabold text-indigo-950 text-base">💡 చిన్నారులూ! ఆంగ్ల వాక్య నిర్మాణం (English Sentence Structure) ఎలా ఉంటుందో చూడండి:</div>
+                    <p>ఆంగ్లంలో వాక్యం ఎప్పుడూ <b>Subject (కర్త) + Verb (క్రియ) + Object (కర్మ)</b> అనే క్రమంలో ఉంటుంది. కానీ తెలుగులో మాత్రం <b>కర్త (Subject) + కర్మ (Object) + క్రియ (Verb)</b> అనే క్రమంలో ఉంటుంది.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
+                        <div class="bg-white p-3 rounded-xl border border-indigo-200">
+                            <div class="font-extrabold text-indigo-700">Rule 1: I / We / You / They / Plural (బహువచనం)</div>
+                            <div class="text-xs mt-1">కర్త <b>I, We, You, They, Boys, Girls, Birds, Cows</b> అయినప్పుడు క్రియ (Verb) మూల రూపంలోనే (Base Verb: <b>eat, drink, read, play</b>) ఉంటుంది. చివర 's' చేరదు.</div>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-pink-200">
+                            <div class="font-extrabold text-pink-700">Rule 2: He / She / It / Singular (ఏకవచనం)</div>
+                            <div class="text-xs mt-1">కర్త <b>He, She, Ramu, Sita, The dog, My mother, The teacher</b> వంటి ఏకవచనం (3rd Person Singular) అయినప్పుడు క్రియ చివర <b>'s'</b> చేరుతుంది (<b>eats, drinks, reads, plays</b>).</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="chartModalGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- APPLICATION JAVASCRIPT -->
+    <script>
+        /********************************************************************
+         * 1. WEB AUDIO API GENTLE CHIMES (RIGHT / WRONG SOUND EFFECTS)
+         ********************************************************************/
+        let audioCtx = null;
+        function playFeedbackSound(isCorrect) {
+            try {
+                if (!audioCtx) {
+                    const AudioContext = window.AudioContext || window.webkitAudioContext;
+                    audioCtx = new AudioContext();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                if (isCorrect) {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(523.25, now); // C5
+                    osc.frequency.setValueAtTime(659.25, now + 0.1); // E5
+                    osc.frequency.setValueAtTime(783.99, now + 0.2); // G5
+                    gain.gain.setValueAtTime(0.16, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.42);
+                    osc.start(now);
+                    osc.stop(now + 0.42);
+                } else {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(300, now);
+                    osc.frequency.setValueAtTime(220, now + 0.15);
+                    gain.gain.setValueAtTime(0.16, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+                    osc.start(now);
+                    osc.stop(now + 0.35);
+                }
+            } catch (e) {
+                // Ignore audio context restrictions
+            }
+        }
+
+        /********************************************************************
+         * 2. SUBJECTS, VERBS & OBJECTS GRAMMAR DATABASE
+         *    Used to build 70+ core SVO sentences & 280+ unique questions
+         ********************************************************************/
+        const SUBJECT_META = {
+            'I': {
+                eng: 'I', te: 'నేను', isThirdSingular: false, groupKey: 'I',
+                personDescTe: 'ఉత్తమ పురుష ఏకవచనం (1st Person Singular - "I")',
+                ruleNoteTe: 'ఆంగ్ల వ్యాకరణ నియమం ప్రకారం కర్త (Subject) "I (నేను)" వచ్చినప్పుడు క్రియ (Verb) మూల రూపంలోనే (Base form - చివర "s" లేకుండా) ఉంటుంది.'
+            },
+            'We': {
+                eng: 'We', te: 'మేము / మనము', isThirdSingular: false, groupKey: 'WE',
+                personDescTe: 'ఉత్తమ పురుష బహువచనం (1st Person Plural - "We")',
+                ruleNoteTe: 'కర్త (Subject) "We (మేము/మనము)" బహువచనం కాబట్టి క్రియ (Verb) మూల రూపంలోనే (Base form - చివర "s" లేకుండా) ఉంటుంది.'
+            },
+            'You': {
+                eng: 'You', te: 'నీవు / మీరు', isThirdSingular: false, groupKey: 'YOU',
+                personDescTe: 'మధ్యమ పురుష (2nd Person - "You")',
+                ruleNoteTe: 'కర్త (Subject) "You (నీవు/మీరు)" వచ్చినప్పుడు క్రియ (Verb) ఎల్లప్పుడూ మూల రూపంలోనే (Base form - చివర "s" లేకుండా) ఉంటుంది.'
+            },
+            'They': {
+                eng: 'They', te: 'వారు', isThirdSingular: false, groupKey: 'PL_HUMAN',
+                personDescTe: 'ప్రథమ పురుష బహువచనం (3rd Person Plural - "They")',
+                ruleNoteTe: 'కర్త (Subject) "They (వారు)" బహువచనం కాబట్టి క్రియ (Verb) మూల రూపంలోనే (Base form - చివర "s" లేకుండా) వస్తుంది.'
+            },
+            'Boys': {
+                eng: 'Boys', te: 'బాలురు (అబ్బాయిలు)', isThirdSingular: false, groupKey: 'PL_HUMAN',
+                personDescTe: 'బహువచన నామవాచకం (Plural Noun - "Boys")',
+                ruleNoteTe: 'కర్త (Subject) "Boys (బాలురు)" బహువచనం కాబట్టి క్రియకు "s" చేరదు (Base Verb వస్తుంది).'
+            },
+            'Girls': {
+                eng: 'Girls', te: 'బాలికలు (అమ్మాయిలు)', isThirdSingular: false, groupKey: 'PL_HUMAN',
+                personDescTe: 'బహువచన నామవాచకం (Plural Noun - "Girls")',
+                ruleNoteTe: 'కర్త (Subject) "Girls (బాలికలు)" బహువచనం కాబట్టి క్రియకు "s" చేరదు (Base Verb వస్తుంది).'
+            },
+            'Birds': {
+                eng: 'Birds', te: 'పక్షులు', isThirdSingular: false, groupKey: 'PL_NH',
+                personDescTe: 'బహువచన నామవాచకం (Plural Noun - "Birds")',
+                ruleNoteTe: 'కర్త (Subject) "Birds (పక్షులు)" బహువచనం కాబట్టి క్రియ మూల రూపంలోనే (Base Verb - చివర "s" లేకుండా) ఉంటుంది.'
+            },
+            'Cows': {
+                eng: 'Cows', te: 'ఆవులు', isThirdSingular: false, groupKey: 'PL_NH',
+                personDescTe: 'బహువచన నామవాచకం (Plural Noun - "Cows")',
+                ruleNoteTe: 'కర్త (Subject) "Cows (ఆవులు)" బహువచనం కాబట్టి క్రియ మూల రూపంలోనే (Base Verb - చివర "s" లేకుండా) ఉంటుంది.'
+            },
+            'He': {
+                eng: 'He', te: 'అతను', isThirdSingular: true, groupKey: 'SG_M',
+                personDescTe: 'ప్రథమ పురుష పుంలింగ ఏకవచనం (3rd Person Singular Male - "He")',
+                ruleNoteTe: 'కర్త (Subject) "He (అతను)" ప్రథమ పురుష ఏకవచనం (3rd Person Singular) కాబట్టి సాధారణ వర్తమాన కాలం (Simple Present Tense) లో క్రియ చివర తప్పనిసరిగా "s" చేరుతుంది.'
+            },
+            'She': {
+                eng: 'She', te: 'ఆమె', isThirdSingular: true, groupKey: 'SG_F',
+                personDescTe: 'ప్రథమ పురుష స్త్రీలింగ ఏకవచనం (3rd Person Singular Female - "She")',
+                ruleNoteTe: 'కర్త (Subject) "She (ఆమె)" ప్రథమ పురుష ఏకవచనం (3rd Person Singular) కాబట్టి క్రియ (Verb) చివర తప్పనిసరిగా "s" చేరుతుంది.'
+            },
+            'Ramu': {
+                eng: 'Ramu', te: 'రాము', isThirdSingular: true, groupKey: 'SG_M',
+                personDescTe: 'ఏకవచన నామవాచకం (3rd Person Singular Name - "Ramu")',
+                ruleNoteTe: 'కర్త (Subject) "Ramu (రాము)" ఒక వ్యక్తి పేరు (3rd Person Singular) కాబట్టి క్రియ (Verb) చివర తప్పనిసరిగా "s" చేరుతుంది.'
+            },
+            'Sita': {
+                eng: 'Sita', te: 'సీత', isThirdSingular: true, groupKey: 'SG_F',
+                personDescTe: 'ఏకవచన నామవాచకం (3rd Person Singular Name - "Sita")',
+                ruleNoteTe: 'కర్త (Subject) "Sita (సీత)" ఒక అమ్మాయి పేరు (3rd Person Singular) కాబట్టి క్రియ (Verb) చివర తప్పనిసరిగా "s" చేరుతుంది.'
+            },
+            'The dog': {
+                eng: 'The dog', te: 'కుక్క', isThirdSingular: true, groupKey: 'SG_NH',
+                personDescTe: 'ఏకవచన జంతు నామవాచకం (3rd Person Singular Animal - "The dog")',
+                ruleNoteTe: 'కర్త (Subject) "The dog (కుక్క)" ఏకవచనం (3rd Person Singular) కాబట్టి క్రియ చివర "s" చేరుతుంది.'
+            },
+            'The cat': {
+                eng: 'The cat', te: 'పిల్లి', isThirdSingular: true, groupKey: 'SG_NH',
+                personDescTe: 'ఏకవచన జంతు నామవాచకం (3rd Person Singular Animal - "The cat")',
+                ruleNoteTe: 'కర్త (Subject) "The cat (పిల్లి)" ఏకవచనం (3rd Person Singular) కాబట్టి క్రియ చివర "s" చేరుతుంది.'
+            },
+            'My mother': {
+                eng: 'My mother', te: 'మా అమ్మ', isThirdSingular: true, groupKey: 'SG_F',
+                personDescTe: 'ఏకవచన నామవాచకం (3rd Person Singular - "My mother")',
+                ruleNoteTe: 'కర్త (Subject) "My mother (మా అమ్మ)" ఏకవచనం (3rd Person Singular) కాబట్టి క్రియ చివర "s" చేరుతుంది.'
+            },
+            'My father': {
+                eng: 'My father', te: 'మా నాన్న', isThirdSingular: true, groupKey: 'SG_M',
+                personDescTe: 'ఏకవచన నామవాచకం (3rd Person Singular - "My father")',
+                ruleNoteTe: 'కర్త (Subject) "My father (మా నాన్న)" ఏకవచనం (3rd Person Singular) కాబట్టి క్రియ చివర "s" చేరుతుంది.'
+            },
+            'The teacher': {
+                eng: 'The teacher', te: 'ఉపాధ్యాయుడు / టీచర్', isThirdSingular: true, groupKey: 'SG_HON',
+                personDescTe: 'ఏకవచన నామవాచకం (3rd Person Singular - "The teacher")',
+                ruleNoteTe: 'కర్త (Subject) "The teacher (ఉపాధ్యాయుడు)" ఏకవచనం (3rd Person Singular) కాబట్టి క్రియ చివర "s" చేరుతుంది.'
+            },
+            'Children': {
+                eng: 'Children', te: 'పిల్లలు', isThirdSingular: false, groupKey: 'PL_HUMAN',
+                personDescTe: 'బహువచన నామవాచకం (Plural Noun - "Children")',
+                ruleNoteTe: 'కర్త (Subject) "Children (పిల్లలు)" బహువచనం కాబట్టి క్రియ మూల రూపంలోనే (Base Verb - చివర "s" లేకుండా) ఉంటుంది.'
+            },
+            'The monkey': {
+                eng: 'The monkey', te: 'కోతి', isThirdSingular: true, groupKey: 'SG_NH',
+                personDescTe: 'ఏకవచన జంతు నామవాచకం (3rd Person Singular Animal - "The monkey")',
+                ruleNoteTe: 'కర్త (Subject) "The monkey (కోతి)" ఏకవచనం (3rd Person Singular) కాబట్టి క్రియ చివర "s" చేరుతుంది.'
+            },
+            'Grandmother': {
+                eng: 'Grandmother', te: 'అమ్మమ్మ / నానమ్మ', isThirdSingular: true, groupKey: 'SG_F',
+                personDescTe: 'ఏకవచన నామవాచకం (3rd Person Singular - "Grandmother")',
+                ruleNoteTe: 'కర్త (Subject) "Grandmother (అమ్మమ్మ/నానమ్మ)" ఏకవచనం కాబట్టి క్రియ చివర "s" చేరుతుంది.'
+            },
+            'The farmer': {
+                eng: 'The farmer', te: 'రైతు', isThirdSingular: true, groupKey: 'SG_M',
+                personDescTe: 'ఏకవచన నామవాచకం (3rd Person Singular - "The farmer")',
+                ruleNoteTe: 'కర్త (Subject) "The farmer (రైతు)" ఏకవచనం కాబట్టి క్రియ చివర "s" చేరుతుంది.'
+            }
+        };
+
+        const VERB_META = {
+            'eat': {
+                v1: 'eat', vs: 'eats', meaningTe: 'తినుట (Eating)',
+                formsTe: { I: 'తింటాను', WE: 'తింటాము', YOU: 'తింటావు / తింటారు', PL_HUMAN: 'తింటారు', PL_NH: 'తింటాయి', SG_M: 'తింటాడు', SG_F: 'తింటుంది', SG_NH: 'తింటుంది', SG_HON: 'తింటారు' }
+            },
+            'drink': {
+                v1: 'drink', vs: 'drinks', meaningTe: 'త్రాగుట (Drinking)',
+                formsTe: { I: 'త్రాగుతాను', WE: 'త్రాగుతాము', YOU: 'త్రాగుతావు / త్రాగుతారు', PL_HUMAN: 'త్రాగుతారు', PL_NH: 'త్రాగుతాయి', SG_M: 'త్రాగుతాడు', SG_F: 'త్రాగుతుంది', SG_NH: 'త్రాగుతుంది', SG_HON: 'త్రాగుతారు' }
+            },
+            'read': {
+                v1: 'read', vs: 'reads', meaningTe: 'చదువుట (Reading)',
+                formsTe: { I: 'చదువుతాను', WE: 'చదువుతాము', YOU: 'చదువుతావు / చదువుతారు', PL_HUMAN: 'చదువుతారు', PL_NH: 'చదువుతాయి', SG_M: 'చదువుతాడు', SG_F: 'చదువుతుంది', SG_NH: 'చదువుతుంది', SG_HON: 'చదువుతారు' }
+            },
+            'write': {
+                v1: 'write', vs: 'writes', meaningTe: 'రాయుట (Writing)',
+                formsTe: { I: 'రాస్తాను', WE: 'రాస్తాము', YOU: 'రాస్తావు / రాస్తారు', PL_HUMAN: 'రాస్తారు', PL_NH: 'రాస్తాయి', SG_M: 'రాస్తాడు', SG_F: 'రాస్తుంది', SG_NH: 'రాస్తుంది', SG_HON: 'రాస్తారు' }
+            },
+            'play': {
+                v1: 'play', vs: 'plays', meaningTe: 'ఆడుట (Playing)',
+                formsTe: { I: 'ఆడుతాను', WE: 'ఆడుతాము', YOU: 'ఆడుతావు / ఆడుతారు', PL_HUMAN: 'ఆడుతారు', PL_NH: 'ఆడుతాయి', SG_M: 'ఆడుతాడు', SG_F: 'ఆడుతుంది', SG_NH: 'ఆడుతుంది', SG_HON: 'ఆడుతారు' }
+            },
+            'like': {
+                v1: 'like', vs: 'likes', meaningTe: 'ఇష్టపడుట (Liking)',
+                formsTe: { I: 'ఇష్టపడతాను', WE: 'ఇష్టపడతాము', YOU: 'ఇష్టపడతావు / ఇష్టపడతారు', PL_HUMAN: 'ఇష్టపడతారు', PL_NH: 'ఇష్టపడతాయి', SG_M: 'ఇష్టపడతాడు', SG_F: 'ఇష్టపడుతుంది', SG_NH: 'ఇష్టపడుతుంది', SG_HON: 'ఇష్టపడతారు' }
+            },
+            'see': {
+                v1: 'see', vs: 'sees', meaningTe: 'చూచుట (Seeing)',
+                formsTe: { I: 'చూస్తాను', WE: 'చూస్తాము', YOU: 'చూస్తావు / చూస్తారు', PL_HUMAN: 'చూస్తారు', PL_NH: 'చూస్తాయి', SG_M: 'చూస్తాడు', SG_F: 'చూస్తుంది', SG_NH: 'చూస్తుంది', SG_HON: 'చూస్తారు' }
+            },
+            'buy': {
+                v1: 'buy', vs: 'buys', meaningTe: 'కొనుట (Buying)',
+                formsTe: { I: 'కొంటాను', WE: 'కొంటాము', YOU: 'కొంటావు / కొంటారు', PL_HUMAN: 'కొంటారు', PL_NH: 'కొంటాయి', SG_M: 'కొంటాడు', SG_F: 'కొంటుంది', SG_NH: 'కొంటుంది', SG_HON: 'కొంటారు' }
+            },
+            'sing': {
+                v1: 'sing', vs: 'sings', meaningTe: 'పాడుట (Singing)',
+                formsTe: { I: 'పాడుతాను', WE: 'పాడుతాము', YOU: 'పాడుతావు / పాడుతారు', PL_HUMAN: 'పాడుతారు', PL_NH: 'పాడుతాయి', SG_M: 'పాడుతాడు', SG_F: 'పాడుతుంది', SG_NH: 'పాడుతుంది', SG_HON: 'పాడుతారు' }
+            },
+            'draw': {
+                v1: 'draw', vs: 'draws', meaningTe: 'బొమ్మ గీయుట (Drawing)',
+                formsTe: { I: 'గీస్తాను', WE: 'గీస్తాము', YOU: 'గీస్తావు / గీస్తారు', PL_HUMAN: 'గీస్తారు', PL_NH: 'గీస్తాయి', SG_M: 'గీస్తాడు', SG_F: 'గీస్తుంది', SG_NH: 'గీస్తుంది', SG_HON: 'గీస్తారు' }
+            },
+            'clean': {
+                v1: 'clean', vs: 'cleans', meaningTe: 'శుభ్రం చేయుట (Cleaning)',
+                formsTe: { I: 'శుభ్రం చేస్తాను', WE: 'శుభ్రం చేస్తాము', YOU: 'శుభ్రం చేస్తావు / చేస్తారు', PL_HUMAN: 'శుభ్రం చేస్తారు', PL_NH: 'శుభ్రం చేస్తాయి', SG_M: 'శుభ్రం చేస్తాడు', SG_F: 'శుభ్రం చేస్తుంది', SG_NH: 'శుభ్రం చేస్తుంది', SG_HON: 'శుభ్రం చేస్తారు' }
+            },
+            'help': {
+                v1: 'help', vs: 'helps', meaningTe: 'సహాయం చేయుట (Helping)',
+                formsTe: { I: 'సహాయం చేస్తాను', WE: 'సహాయం చేస్తాము', YOU: 'సహాయం చేస్తావు / చేస్తారు', PL_HUMAN: 'సహాయం చేస్తారు', PL_NH: 'సహాయం చేస్తాయి', SG_M: 'సహాయం చేస్తాడు', SG_F: 'సహాయం చేస్తుంది', SG_NH: 'సహాయం చేస్తుంది', SG_HON: 'సహాయం చేస్తారు' }
+            },
+            'love': {
+                v1: 'love', vs: 'loves', meaningTe: 'ప్రేమించుట (Loving)',
+                formsTe: { I: 'ప్రేమిస్తాను', WE: 'ప్రేమిస్తాము', YOU: 'ప్రేమిస్తావు / ప్రేమిస్తారు', PL_HUMAN: 'ప్రేమిస్తారు', PL_NH: 'ప్రేమిస్తాయి', SG_M: 'ప్రేమిస్తాడు', SG_F: 'ప్రేమిస్తుంది', SG_NH: 'ప్రేమిస్తుంది', SG_HON: 'ప్రేమిస్తారు' }
+            },
+            'cook': {
+                v1: 'cook', vs: 'cooks', meaningTe: 'వండుట (Cooking)',
+                formsTe: { I: 'వండుతాను', WE: 'వండుతాము', YOU: 'వండుతావు / వండుతారు', PL_HUMAN: 'వండుతారు', PL_NH: 'వండుతాయి', SG_M: 'వండుతాడు', SG_F: 'వండుతుంది', SG_NH: 'వండుతుంది', SG_HON: 'వండుతారు' }
+            },
+            'drive': {
+                v1: 'drive', vs: 'drives', meaningTe: 'నడుపుట (Driving)',
+                formsTe: { I: 'నడుపుతాను', WE: 'నడుపుతాము', YOU: 'నడుపుతావు / నడుపుతారు', PL_HUMAN: 'నడుపుతారు', PL_NH: 'నడుపుతాయి', SG_M: 'నడుపుతాడు', SG_F: 'నడుపుతుంది', SG_NH: 'నడుపుతుంది', SG_HON: 'నడుపుతారు' }
+            },
+            'plant': {
+                v1: 'plant', vs: 'plants', meaningTe: 'నాటుట (Planting)',
+                formsTe: { I: 'నాటుతాను', WE: 'నాటుతాము', YOU: 'నాటుతావు / నాటుతారు', PL_HUMAN: 'నాటుతారు', PL_NH: 'నాటుతాయి', SG_M: 'నాటుతాడు', SG_F: 'నాటుతుంది', SG_NH: 'నాటుతుంది', SG_HON: 'నాటుతారు' }
+            },
+            'tell': {
+                v1: 'tell', vs: 'tells', meaningTe: 'చెప్పుట (Telling)',
+                formsTe: { I: 'చెబుతాను', WE: 'చెబుతాము', YOU: 'చెబుతావు / చెబుతారు', PL_HUMAN: 'చెబుతారు', PL_NH: 'చెబుతాయి', SG_M: 'చెబుతాడు', SG_F: 'చెబుతుంది', SG_NH: 'చెబుతుంది', SG_HON: 'చెబుతారు' }
+            },
+            'wash': {
+                v1: 'wash', vs: 'washes', meaningTe: 'ఉతుకుట / కడుగుట (Washing)',
+                formsTe: { I: 'శుభ్రంగా కడుగుతాను', WE: 'కడుగుతాము', YOU: 'కడుగుతావు / కడుగుతారు', PL_HUMAN: 'కడుగుతారు', PL_NH: 'కడుగుతాయి', SG_M: 'కడుగుతాడు', SG_F: 'కడుగుతుంది', SG_NH: 'కడుగుతుంది', SG_HON: 'కడుగుతారు' }
+            },
+            'respect': {
+                v1: 'respect', vs: 'respects', meaningTe: 'గౌరవించుట (Respecting)',
+                formsTe: { I: 'గౌరవిస్తాను', WE: 'గౌరవిస్తాము', YOU: 'గౌరవిస్తావు / గౌరవిస్తారు', PL_HUMAN: 'గౌరవిస్తారు', PL_NH: 'గౌరవిస్తాయి', SG_M: 'గౌరవిస్తాడు', SG_F: 'గౌరవిస్తుంది', SG_NH: 'గౌరవిస్తుంది', SG_HON: 'గౌరవిస్తారు' }
+            }
+        };
+
+        const OBJECT_META = {
+            'an apple': { eng: 'an apple', te: 'ఒక ఆపిల్ పండును', emoji: '🍎' },
+            'sweet mangoes': { eng: 'sweet mangoes', te: 'తియ్యని మామిడి పండ్లను', emoji: '🥭' },
+            'green grass': { eng: 'green grass', te: 'పచ్చని గడ్డిని', emoji: '🌱' },
+            'tasty food': { eng: 'tasty food', te: 'రుచికరమైన ఆహారాన్ని', emoji: '🍱' },
+            'sweet milk': { eng: 'sweet milk', te: 'తియ్యని పాలను', emoji: '🥛' },
+            'cold water': { eng: 'cold water', te: 'చల్లని నీటిని', emoji: '💧' },
+            'a story book': { eng: 'a story book', te: 'ఒక కథల పుస్తకాన్ని', emoji: '📖' },
+            'English grammar': { eng: 'English grammar', te: 'ఆంగ్ల వ్యాకరణాన్ని', emoji: '📚' },
+            'a neat letter': { eng: 'a neat letter', te: 'ఒక చక్కని ఉత్తరాన్ని', emoji: '✉️' },
+            'cricket': { eng: 'cricket', te: 'క్రికెట్ ఆటను', emoji: '🏏' },
+            'new toys': { eng: 'new toys', te: 'కొత్త ఆటబొమ్మలను', emoji: '🧸' },
+            'a big bird': { eng: 'a big bird', te: 'ఒక పెద్ద పక్షిని', emoji: '🦅' },
+            'a sweet song': { eng: 'a sweet song', te: 'ఒక మధురమైన పాటను', emoji: '🎵' },
+            'a nice picture': { eng: 'a nice picture', te: 'ఒక అందమైన చిత్రాన్ని', emoji: '🎨' },
+            'the classroom': { eng: 'the classroom', te: 'తరగతి గదిని', emoji: '🏫' },
+            'poor people': { eng: 'poor people', te: 'పేద ప్రజలకు', emoji: '🤝' },
+            'our parents': { eng: 'our parents', te: 'మన తల్లిదండ్రులను', emoji: '👨‍👩‍👧‍👦' },
+            'a red car': { eng: 'a red car', te: 'ఒక ఎర్రని కారును', emoji: '🚗' },
+            'ripe bananas': { eng: 'ripe bananas', te: 'పండిన అరటిపండ్లను', emoji: '🍌' },
+            'green trees': { eng: 'green trees', te: 'పచ్చని చెట్లను', emoji: '🌳' },
+            'good stories': { eng: 'good stories', te: 'మంచి కథలను', emoji: '📜' },
+            'our teachers': { eng: 'our teachers', te: 'మన ఉపాధ్యాయులను', emoji: '👩‍🏫' },
+            'both hands': { eng: 'both hands', te: 'రెండు చేతులను', emoji: '🧼' },
+            'football': { eng: 'football', te: 'ఫుట్‌బాల్ ఆటను', emoji: '⚽' }
+        };
+
+        // 80+ Curated, Relatable SVO Tuples -> 80 x 7 Question Types = 560 Unique Questions!
+        const RAW_SVO_TUPLES = [
+            // EAT / EATS
+            ['I', 'eat', 'an apple'],
+            ['We', 'eat', 'sweet mangoes'],
+            ['You', 'eat', 'tasty food'],
+            ['They', 'eat', 'sweet mangoes'],
+            ['Boys', 'eat', 'an apple'],
+            ['Cows', 'eat', 'green grass'],
+            ['Birds', 'eat', 'sweet mangoes'],
+            ['He', 'eat', 'an apple'],
+            ['She', 'eat', 'tasty food'],
+            ['Ramu', 'eat', 'sweet mangoes'],
+            ['The monkey', 'eat', 'ripe bananas'],
+            ['Children', 'eat', 'ripe bananas'],
+
+            // DRINK / DRINKS
+            ['I', 'drink', 'sweet milk'],
+            ['We', 'drink', 'cold water'],
+            ['They', 'drink', 'sweet milk'],
+            ['Cows', 'drink', 'cold water'],
+            ['He', 'drink', 'cold water'],
+            ['She', 'drink', 'sweet milk'],
+            ['The cat', 'drink', 'sweet milk'],
+            ['The dog', 'drink', 'cold water'],
+
+            // READ / READS
+            ['I', 'read', 'a story book'],
+            ['We', 'read', 'English grammar'],
+            ['You', 'read', 'a story book'],
+            ['Girls', 'read', 'English grammar'],
+            ['He', 'read', 'a story book'],
+            ['She', 'read', 'English grammar'],
+            ['Ramu', 'read', 'a story book'],
+            ['The teacher', 'read', 'English grammar'],
+
+            // WRITE / WRITES
+            ['I', 'write', 'a neat letter'],
+            ['We', 'write', 'a neat letter'],
+            ['You', 'write', 'English grammar'],
+            ['They', 'write', 'a neat letter'],
+            ['Sita', 'write', 'a neat letter'],
+            ['The teacher', 'write', 'English grammar'],
+
+            // PLAY / PLAYS
+            ['I', 'play', 'cricket'],
+            ['We', 'play', 'cricket'],
+            ['Boys', 'play', 'cricket'],
+            ['They', 'play', 'cricket'],
+            ['He', 'play', 'cricket'],
+            ['Ramu', 'play', 'cricket'],
+            ['Children', 'play', 'football'],
+
+            // LIKE / LIKES
+            ['I', 'like', 'new toys'],
+            ['We', 'like', 'sweet mangoes'],
+            ['Girls', 'like', 'new toys'],
+            ['He', 'like', 'cricket'],
+            ['She', 'like', 'new toys'],
+            ['Sita', 'like', 'sweet milk'],
+
+            // SEE / SEES
+            ['I', 'see', 'a big bird'],
+            ['We', 'see', 'a red car'],
+            ['Birds', 'see', 'green grass'],
+            ['The dog', 'see', 'a big bird'],
+            ['He', 'see', 'a big bird'],
+
+            // BUY / BUYS
+            ['I', 'buy', 'new toys'],
+            ['We', 'buy', 'a story book'],
+            ['My father', 'buy', 'new toys'],
+            ['My mother', 'buy', 'sweet mangoes'],
+
+            // SING / SINGS
+            ['I', 'sing', 'a sweet song'],
+            ['Girls', 'sing', 'a sweet song'],
+            ['She', 'sing', 'a sweet song'],
+            ['Sita', 'sing', 'a sweet song'],
+
+            // DRAW / DRAWS
+            ['I', 'draw', 'a nice picture'],
+            ['You', 'draw', 'a nice picture'],
+            ['He', 'draw', 'a nice picture'],
+            ['Sita', 'draw', 'a nice picture'],
+
+            // CLEAN / CLEANS
+            ['We', 'clean', 'the classroom'],
+            ['Boys', 'clean', 'the classroom'],
+            ['She', 'clean', 'the classroom'],
+
+            // HELP / HELPS
+            ['We', 'help', 'poor people'],
+            ['My father', 'help', 'poor people'],
+
+            // LOVE / LOVES
+            ['We', 'love', 'our parents'],
+            ['They', 'love', 'our parents'],
+
+            // COOK / COOKS & DRIVE / DRIVES
+            ['My mother', 'cook', 'tasty food'],
+            ['My father', 'drive', 'a red car'],
+
+            // PLANT, TELL, WASH, RESPECT (NEW MORAL & NATURE EXERCISES)
+            ['The farmer', 'plant', 'green trees'],
+            ['We', 'plant', 'green trees'],
+            ['Grandmother', 'tell', 'good stories'],
+            ['The teacher', 'tell', 'good stories'],
+            ['Children', 'wash', 'both hands'],
+            ['She', 'wash', 'both hands'],
+            ['We', 'respect', 'our teachers'],
+            ['Children', 'respect', 'our parents']
+        ];
+
+        // Transform RAW_SVO_TUPLES into rich structured sentence objects
+        const SENTENCE_BANK = RAW_SVO_TUPLES.map((tuple, idx) => {
+            const [subjKey, verbKey, objKey] = tuple;
+            const sMeta = SUBJECT_META[subjKey];
+            const vMeta = VERB_META[verbKey];
+            const oMeta = OBJECT_META[objKey];
+
+            const correctVerbEng = sMeta.isThirdSingular ? vMeta.vs : vMeta.v1;
+            const wrongVerbEng = sMeta.isThirdSingular ? vMeta.v1 : vMeta.vs;
+            const verbTe = vMeta.formsTe[sMeta.groupKey];
+
+            const engSentence = `${sMeta.eng} ${correctVerbEng} ${oMeta.eng}.`;
+            const wrongVerbSentence = `${sMeta.eng} ${wrongVerbEng} ${oMeta.eng}.`;
+            const teSentence = `${sMeta.te} ${oMeta.te} ${verbTe}.`;
+
+            return {
+                id: idx,
+                subjKey,
+                verbKey,
+                objKey,
+                sMeta,
+                vMeta,
+                oMeta,
+                correctVerbEng,
+                wrongVerbEng,
+                verbTe,
+                engSentence,
+                wrongVerbSentence,
+                teSentence,
+                emoji: oMeta.emoji
+            };
+        });
+
+        // Build detailed, encouraging Telugu SVO grammar explanation HTML for any sentence item
+        function buildRichSVOTeluguExplanation(item) {
+            const { sMeta, vMeta, oMeta, correctVerbEng, verbTe, engSentence, teSentence } = item;
+
+            const verbRuleBadge = sMeta.isThirdSingular
+                ? `<span class="bg-pink-100 text-pink-900 px-2 py-0.5 rounded font-extrabold">${vMeta.v1} + s = ${correctVerbEng} (ఏకవచన నియమం)</span>`
+                : `<span class="bg-indigo-100 text-indigo-900 px-2 py-0.5 rounded font-extrabold">${correctVerbEng} (మూల క్రియ / Base Verb)</span>`;
+
+            return `
+                <p>🌟 <b>పూర్తి ఆంగ్ల వాక్యం (Full English SVO Sentence):</b> <span class="eng-font font-extrabold text-indigo-900 text-base sm:text-lg">"${engSentence}"</span></p>
+                <p>🇮🇳 <b>పూర్తి తెలుగు అనువాదం (Full Telugu Translation):</b> <span class="font-extrabold text-pink-800 text-base sm:text-lg">"${teSentence}"</span> ${oMeta.emoji}</p>
+
+                <div class="bg-white p-3.5 rounded-xl border-2 border-indigo-200 my-2 text-xs sm:text-sm space-y-2">
+                    <div class="font-extrabold text-indigo-950 border-b border-slate-200 pb-1">
+                        🧩 వాక్య భాగాల విశ్లేషణ (Step-by-Step S + V + O Breakdown):
+                    </div>
+                    <div>
+                        🔹 <b>1. Subject (కర్త - పని చేసేవారు):</b> <span class="eng-font font-extrabold text-indigo-700">"${sMeta.eng}" (${sMeta.te})</span> — ${sMeta.personDescTe}.
+                    </div>
+                    <div>
+                        🔸 <b>2. Verb (క్రియ - చేసే పని):</b> <span class="eng-font font-extrabold text-pink-700">"${correctVerbEng}" (${verbTe})</span> — ${verbRuleBadge}<br>
+                        <span class="text-slate-600 ml-4">↳ <b>వ్యాకరణ నియమం (Grammar Rule):</b> ${sMeta.ruleNoteTe}</span>
+                    </div>
+                    <div>
+                        🟢 <b>3. Object (కర్మ - దేనిని / ఎవరిని):</b> <span class="eng-font font-extrabold text-emerald-700">"${oMeta.eng}" (${oMeta.te})</span> ${oMeta.emoji} — కర్త చేసే పని దేనిపై జరుగుతుందో తెలిపే భాగం.
+                    </div>
+                </div>
+
+                <div class="bg-indigo-950 text-white p-3.5 rounded-xl text-xs sm:text-sm space-y-1">
+                    <div class="font-extrabold text-yellow-300">⚖️ ఇంగ్లీష్ మరియు తెలుగు వాక్య నిర్మాణ తేడా (Word Order Comparison):</div>
+                    <div>• <b>English Order (S + V + O):</b> <span class="text-cyan-300 font-bold">[Subject: ${sMeta.eng}]</span> + <span class="text-pink-300 font-bold">[Verb: ${correctVerbEng}]</span> + <span class="text-emerald-300 font-bold">[Object: ${oMeta.eng}]</span></div>
+                    <div>• <b>Telugu Order (కర్త + కర్మ + క్రియ):</b> <span class="text-cyan-300 font-bold">[కర్త: ${sMeta.te}]</span> + <span class="text-emerald-300 font-bold">[కర్మ: ${oMeta.te}]</span> + <span class="text-pink-300 font-bold">[క్రియ: ${verbTe}]</span></div>
+                    <div class="text-yellow-100 text-xs pt-1">💡 <b>గుర్తుంచుకోండి:</b> తెలుగులో క్రియ (Verb) వాక్యం చివర వస్తుంది, కానీ ఆంగ్లంలో క్రియ (Verb) ఎప్పుడూ కర్త (Subject) తర్వాతే మధ్యలో వస్తుంది!</div>
+                </div>
+            `;
+        }
+
+        // Fisher-Yates Array Shuffle
+        function shuffleArray(arr) {
+            const copy = [...arr];
+            for (let i = copy.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copy[i], copy[j]] = [copy[j], copy[i]];
+            }
+            return copy;
+        }
+
+        // Generate 560+ Unique Questions across 7 Pedagogical SVO Question Types
+        function generateAllQuestions() {
+            const allQuestions = [];
+            const allObjectKeys = Object.keys(OBJECT_META);
+            const allSubjectKeys = Object.keys(SUBJECT_META);
+
+            SENTENCE_BANK.forEach((item, idx) => {
+                const { sMeta, vMeta, oMeta, correctVerbEng, wrongVerbEng, verbTe, engSentence, wrongVerbSentence, teSentence, emoji } = item;
+                const richExpHtml = buildRichSVOTeluguExplanation(item);
+
+                const formulaCards = [
+                    { label: '1. Subject (కర్త)', val: `${sMeta.eng} (${sMeta.te})` },
+                    { label: '2. Verb (క్రియ)', val: `${correctVerbEng} (${verbTe})` },
+                    { label: '3. Object (కర్మ)', val: `${emoji} ${oMeta.eng} (${oMeta.te})` },
+                    { label: 'S + V + O వాక్యం', val: engSentence }
+                ];
+
+                const otherItems = SENTENCE_BANK.filter(x => x.id !== item.id);
+
+                // =========================================================================
+                // TYPE 1: Given Telugu sentence -> Choose the right English SVO sentence
+                // =========================================================================
+                const sovTrapEng = `${sMeta.eng} ${oMeta.eng} ${correctVerbEng}.`; // Telugu word order trap
+                const randomOtherEng = shuffleArray(otherItems)[0].engSentence;
+                const opts1 = shuffleArray([engSentence, wrongVerbSentence, sovTrapEng, randomOtherEng]);
+
+                allQuestions.push({
+                    sentenceObj: item,
+                    qType: 1,
+                    typeBadge: '1. తెలుగు ➔ English SVO',
+                    category: 'సరైన ఆంగ్ల SVO వాక్యాన్ని గుర్తించండి',
+                    visualHint: 'తెలుగు వాక్యానికి సరైన English (Subject + Verb + Object) వాక్యం ఏది?',
+                    emoji,
+                    bigSymbol: teSentence,
+                    promptTe: `"${teSentence}" అనే తెలుగు వాక్యానికి సరైన ఆంగ్ల (Subject + Verb + Object) వాక్యాన్ని ఎంచుకోండి:`,
+                    correctAnswer: engSentence,
+                    options: opts1,
+                    formulaParts: formulaCards,
+                    longExplanationTe: richExpHtml
+                });
+
+                // =========================================================================
+                // TYPE 2: Given English SVO sentence -> Choose the right Telugu translation
+                // =========================================================================
+                const distractorsTe = shuffleArray(otherItems).slice(0, 3).map(d => d.teSentence);
+                const opts2 = shuffleArray([teSentence, ...distractorsTe]);
+
+                allQuestions.push({
+                    sentenceObj: item,
+                    qType: 2,
+                    typeBadge: '2. English SVO ➔ తెలుగు',
+                    category: 'ఆంగ్ల వాక్యానికి సరైన తెలుగు అనువాదం',
+                    visualHint: 'English Subject + Verb + Object ➔ తెలుగు అనువాదం',
+                    emoji,
+                    bigSymbol: engSentence,
+                    promptTe: `"${engSentence}" అనే ఆంగ్ల వాక్యానికి సరైన తెలుగు అర్థం ఏమిటి?`,
+                    correctAnswer: teSentence,
+                    options: opts2,
+                    formulaParts: formulaCards,
+                    longExplanationTe: richExpHtml
+                });
+
+                // =========================================================================
+                // TYPE 3: Fill in the correct VERB form (e.g., eat vs eats)
+                // =========================================================================
+                const otherVerbKeys = Object.keys(VERB_META).filter(k => k !== item.verbKey);
+                const randVKey1 = otherVerbKeys[idx % otherVerbKeys.length];
+                const randVKey2 = otherVerbKeys[(idx + 3) % otherVerbKeys.length];
+                const distractorV1 = `${VERB_META[randVKey1].v1}ing`;
+                const distractorV2 = sMeta.isThirdSingular ? VERB_META[randVKey2].v1 : VERB_META[randVKey2].vs;
+
+                const opts3 = shuffleArray([correctVerbEng, wrongVerbEng, distractorV1, distractorV2]);
+
+                allQuestions.push({
+                    sentenceObj: item,
+                    qType: 3,
+                    typeBadge: '3. Fill Verb (క్రియ)',
+                    category: 'ఖాళీలో సరైన Verb (క్రియ) నింపండి',
+                    visualHint: `Subject "${sMeta.eng}" కు సరిపోయే సరైన Verb ఎంచుకోండి`,
+                    emoji,
+                    bigSymbol: `${sMeta.eng} _____ ${oMeta.eng}.`,
+                    promptTe: `"${teSentence}" — ఈ వాక్యంలోని ఖాళీలో "${sMeta.eng}" తర్వాత వచ్చే సరైన క్రియ (Verb) ఏది?`,
+                    correctAnswer: correctVerbEng,
+                    options: opts3,
+                    formulaParts: formulaCards,
+                    longExplanationTe: richExpHtml
+                });
+
+                // =========================================================================
+                // TYPE 4: Fill in the Right OBJECT (కర్మను గుర్తించుట)
+                // =========================================================================
+                const otherObjs = shuffleArray(allObjectKeys.filter(k => k !== item.objKey)).slice(0, 3);
+                const opts4Obj = shuffleArray([oMeta.eng, ...otherObjs]);
+
+                allQuestions.push({
+                    sentenceObj: item,
+                    qType: 4,
+                    typeBadge: '4. Fill Object (కర్మ)',
+                    category: 'ఖాళీలో సరైన Object (కర్మ) నింపండి',
+                    visualHint: `"${oMeta.te}" కు సరైన English Object ఎంచుకోండి`,
+                    emoji,
+                    bigSymbol: `${sMeta.eng} ${correctVerbEng} _____.`,
+                    promptTe: `"${teSentence}" — ఈ వాక్యాన్ని పూర్తి చేయడానికి ఖాళీలో "${oMeta.te}" కు సరైన ఆంగ్ల కర్మ (Object) ఏది?`,
+                    correctAnswer: oMeta.eng,
+                    options: opts4Obj,
+                    formulaParts: formulaCards,
+                    longExplanationTe: richExpHtml
+                });
+
+                // =========================================================================
+                // TYPE 5: Fill in the Right SUBJECT (కర్తను గుర్తించుట)
+                // =========================================================================
+                const otherSubjs = shuffleArray(allSubjectKeys.filter(k => k !== item.subjKey)).slice(0, 3);
+                const opts5Subj = shuffleArray([sMeta.eng, ...otherSubjs]);
+
+                allQuestions.push({
+                    sentenceObj: item,
+                    qType: 5,
+                    typeBadge: '5. Fill Subject (కర్త)',
+                    category: 'ఖాళీలో సరైన Subject (కర్త) నింపండి',
+                    visualHint: `"${sMeta.te}" కు సరైన English Subject ఎంచుకోండి`,
+                    emoji,
+                    bigSymbol: `_____ ${correctVerbEng} ${oMeta.eng}.`,
+                    promptTe: `"${teSentence}" — ఈ వాక్యంలోని ఖాళీలో "${sMeta.te}" ను సూచించే సరైన ఆంగ్ల కర్త (Subject) ఏది?`,
+                    correctAnswer: sMeta.eng,
+                    options: opts5Subj,
+                    formulaParts: formulaCards,
+                    longExplanationTe: richExpHtml
+                });
+
+                // =========================================================================
+                // TYPE 6: Unscramble Jumbled Words into SVO Order (పదాలను సరైన SVO క్రమంలో అమర్చుట)
+                // =========================================================================
+                const jumbledDisplay = `[ ${oMeta.eng}  /  ${correctVerbEng}  /  ${sMeta.eng} ]`;
+                const wrongOrderSOV = `${sMeta.eng} ${oMeta.eng} ${correctVerbEng}.`;
+                const wrongOrderVSO = `${correctVerbEng} ${sMeta.eng} ${oMeta.eng}.`;
+                const wrongOrderOSV = `${oMeta.eng} ${sMeta.eng} ${correctVerbEng}.`;
+                const opts6Unscramble = shuffleArray([engSentence, wrongOrderSOV, wrongOrderVSO, wrongOrderOSV]);
+
+                allQuestions.push({
+                    sentenceObj: item,
+                    qType: 6,
+                    typeBadge: '6. Unscramble SVO',
+                    category: 'పదాలను సరైన S + V + O క్రమంలో అమర్చండి',
+                    visualHint: 'Jumbled Words ➔ Subject + Verb + Object',
+                    emoji,
+                    bigSymbol: jumbledDisplay,
+                    promptTe: `పై తారుమారు చేయబడిన పదాలను ఆంగ్ల వ్యాకరణ నియమం (Subject + Verb + Object) ప్రకారం అమర్చితే వచ్చే సరైన వాక్యం ఏది? (${teSentence})`,
+                    correctAnswer: engSentence,
+                    options: opts6Unscramble,
+                    formulaParts: formulaCards,
+                    longExplanationTe: richExpHtml
+                });
+
+                // =========================================================================
+                // TYPE 7: Identify the SUBJECT, VERB, or OBJECT in the given sentence
+                // =========================================================================
+                const roleChoice = idx % 3; // 0 = Subject, 1 = Verb, 2 = Object
+                let rolePromptTe = '';
+                let roleCorrect = '';
+                let roleDistractor = '';
+
+                if (roleChoice === 0) {
+                    rolePromptTe = `"${engSentence}" (${teSentence}) — ఈ వాక్యంలో పని చేసే "Subject (కర్త)" ఏది?`;
+                    roleCorrect = `${sMeta.eng} (${sMeta.te})`;
+                    const otherSubj = SENTENCE_BANK[(idx + 5) % SENTENCE_BANK.length].sMeta;
+                    roleDistractor = `${otherSubj.eng} (${otherSubj.te})`;
+                } else if (roleChoice === 1) {
+                    rolePromptTe = `"${engSentence}" (${teSentence}) — ఈ వాక్యంలో పనిని తెలిపే "Verb (క్రియ)" ఏది?`;
+                    roleCorrect = `${correctVerbEng} (${verbTe})`;
+                    const otherSentence = SENTENCE_BANK[(idx + 5) % SENTENCE_BANK.length];
+                    roleDistractor = `${otherSentence.correctVerbEng} (${otherSentence.verbTe})`;
+                } else {
+                    rolePromptTe = `"${engSentence}" (${teSentence}) — ఈ వాక్యంలో "Object (కర్మ - దేనిని/ఎవరిని)" ఏది?`;
+                    roleCorrect = `${oMeta.eng} (${oMeta.te})`;
+                    const otherObj = SENTENCE_BANK[(idx + 5) % SENTENCE_BANK.length].oMeta;
+                    roleDistractor = `${otherObj.eng} (${otherObj.te})`;
+                }
+
+                const opts7 = shuffleArray([
+                    `${sMeta.eng} (${sMeta.te})`,
+                    `${correctVerbEng} (${verbTe})`,
+                    `${oMeta.eng} (${oMeta.te})`,
+                    roleDistractor
+                ]);
+
+                allQuestions.push({
+                    sentenceObj: item,
+                    qType: 7,
+                    typeBadge: '7. Identify S / V / O',
+                    category: 'Subject / Verb / Object గుర్తించండి',
+                    visualHint: 'వాక్యంలోని భాగాలను (Subject / Verb / Object) గుర్తించండి',
+                    emoji,
+                    bigSymbol: engSentence,
+                    promptTe: rolePromptTe,
+                    correctAnswer: roleCorrect,
+                    options: opts7,
+                    formulaParts: formulaCards,
+                    longExplanationTe: richExpHtml
+                });
+            });
+
+            // Jumble all 560+ questions every time the file is opened!
+            return shuffleArray(allQuestions);
+        }
+
+        /********************************************************************
+         * 3. WEB SPEECH API (ENGLISH SENTENCE AUDIO PRONUNCIATION)
+         ********************************************************************/
+        function speakEnglishText(text) {
+            if (!('speechSynthesis' in window)) return;
+            try {
+                window.speechSynthesis.cancel();
+                const utter = new SpeechSynthesisUtterance(text);
+                utter.lang = 'en-IN';
+                utter.rate = 0.88; // clear & child-friendly pace
+                utter.pitch = 1.05;
+                window.speechSynthesis.speak(utter);
+            } catch (e) {
+                // Ignore speech synthesis errors on restricted devices
+            }
+        }
+
+        function speakCurrentQuestionEnglish() {
+            const q = questions[currentQIndex];
+            if (q && q.sentenceObj) {
+                speakEnglishText(q.sentenceObj.engSentence);
+            }
+        }
+
+        /********************************************************************
+         * 4. APPLICATION STATE & LIVE SCREEN TIMER
+         ********************************************************************/
+        let questions = [];
+        let currentQIndex = 0;
+        // Map of questionIndex -> { selectedOption, isCorrect }
+        let userAttempts = {};
+        let elapsedSeconds = 0;
+        let timerInterval = null;
+
+        // Mini-game scores for final report
+        let memoryPairsCompletedTotal = 0;
+        let matchGamePointsTotal = 0;
+        let hasAutoSubmittedOnResults = false;
+
+        function formatTime(sec) {
+            const hrs = Math.floor(sec / 3600);
+            const mins = Math.floor((sec % 3600) / 60);
+            const s = sec % 60;
+            if (hrs > 0) {
+                return [hrs, mins, s].map(v => String(v).padStart(2, '0')).join(':');
+            }
+            return [mins, s].map(v => String(v).padStart(2, '0')).join(':');
+        }
+
+        function startLiveScreenTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                elapsedSeconds++;
+                const formatted = formatTime(elapsedSeconds);
+                const liveEl = document.getElementById('liveTimerDisplay');
+                const resEl = document.getElementById('resScreenTime');
+                if (liveEl) liveEl.textContent = formatted;
+                if (resEl) resEl.textContent = formatted;
+            }, 1000);
+        }
+
+        /********************************************************************
+         * 5. QUIZ ENGINE (SINGLE ATTEMPT LOCK, NAVIGATION, TELUGU EXPLANATION)
+         ********************************************************************/
+        function updateStatsBar() {
+            const total = questions.length;
+            const attemptedKeys = Object.keys(userAttempts);
+            const attempted = attemptedKeys.length;
+            const unattempted = total - attempted;
+            const correct = attemptedKeys.filter(k => userAttempts[k].isCorrect).length;
+            const wrong = attempted - correct;
+            const accuracy = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
+
+            // Header bar
+            document.getElementById('headerTotalBadge').textContent = `${total} Qs`;
+            document.getElementById('statTotal').textContent = total;
+            document.getElementById('statAttempted').textContent = attempted;
+            document.getElementById('statUnattempted').textContent = unattempted;
+            document.getElementById('statCorrect').textContent = correct;
+            document.getElementById('statWrong').textContent = wrong;
+
+            // Progress bar
+            const pct = total > 0 ? ((attempted / total) * 100).toFixed(1) : 0;
+            document.getElementById('quizProgressBar').style.width = `${pct}%`;
+            document.getElementById('progressTextPercent').textContent = `${pct}% పూర్తి చేశారు (${attempted}/${total})`;
+
+            // Results page numbers
+            document.getElementById('resTotalQs').textContent = total;
+            document.getElementById('resAttempted').textContent = attempted;
+            document.getElementById('resNotAttempted').textContent = unattempted;
+            document.getElementById('resCorrect').textContent = correct;
+            document.getElementById('resWrong').textContent = wrong;
+            document.getElementById('resAccuracy').textContent = `${accuracy}%`;
+            document.getElementById('resMemoryScore').textContent = memoryPairsCompletedTotal;
+            document.getElementById('resMatchScore').textContent = matchGamePointsTotal;
+        }
+
+        function renderQuestionPalette() {
+            const grid = document.getElementById('questionPaletteGrid');
+            grid.innerHTML = '';
+            questions.forEach((q, idx) => {
+                const btn = document.createElement('button');
+                const attempt = userAttempts[idx];
+                let colorClass = 'bg-slate-100 text-slate-700 hover:bg-indigo-100 border-slate-300';
+                if (attempt) {
+                    colorClass = attempt.isCorrect
+                        ? 'bg-emerald-500 text-white border-emerald-600'
+                        : 'bg-rose-500 text-white border-rose-600';
+                }
+                if (idx === currentQIndex) {
+                    colorClass += ' ring-2 ring-indigo-600 font-extrabold scale-105';
+                }
+                btn.className = `text-xs py-1.5 rounded-lg border font-bold transition ${colorClass}`;
+                btn.textContent = idx + 1;
+                btn.title = `${q.sentenceObj.engSentence} (${q.typeBadge})`;
+                btn.onclick = () => {
+                    currentQIndex = idx;
+                    renderCurrentQuestion();
+                };
+                grid.appendChild(btn);
+            });
+        }
+
+        function toggleQuestionPalette() {
+            const container = document.getElementById('questionPaletteContainer');
+            container.classList.toggle('hidden');
+            if (!container.classList.contains('hidden')) {
+                renderQuestionPalette();
+            }
+        }
+
+        function jumpToNextByType(targetQType) {
+            const total = questions.length;
+            for (let offset = 1; offset <= total; offset++) {
+                const idx = (currentQIndex + offset) % total;
+                if (questions[idx].qType === targetQType && !userAttempts[idx]) {
+                    currentQIndex = idx;
+                    renderCurrentQuestion();
+                    return;
+                }
+            }
+            for (let offset = 1; offset <= total; offset++) {
+                const idx = (currentQIndex + offset) % total;
+                if (questions[idx].qType === targetQType) {
+                    currentQIndex = idx;
+                    renderCurrentQuestion();
+                    return;
+                }
+            }
+        }
+
+        function jumpToNextUnattempted() {
+            const total = questions.length;
+            for (let offset = 1; offset <= total; offset++) {
+                const idx = (currentQIndex + offset) % total;
+                if (!userAttempts[idx]) {
+                    currentQIndex = idx;
+                    renderCurrentQuestion();
+                    return;
+                }
+            }
+        }
+
+        function renderCurrentQuestion() {
+            const q = questions[currentQIndex];
+            const attempt = userAttempts[currentQIndex];
+
+            // Header Badges
+            document.getElementById('qBadgeNumber').textContent = `ప్రశ్న ${currentQIndex + 1} / ${questions.length}`;
+            const lenBadge = document.getElementById('qWordLengthBadge');
+            const badgeStyles = {
+                1: 'bg-purple-100 text-purple-900 border-purple-300',
+                2: 'bg-teal-100 text-teal-900 border-teal-300',
+                3: 'bg-pink-100 text-pink-900 border-pink-300',
+                4: 'bg-emerald-100 text-emerald-900 border-emerald-300',
+                5: 'bg-orange-100 text-orange-900 border-orange-300',
+                6: 'bg-cyan-100 text-cyan-900 border-cyan-300',
+                7: 'bg-blue-100 text-blue-900 border-blue-300'
+            };
+            lenBadge.className = `font-extrabold px-3 py-1 rounded-xl text-xs border ${badgeStyles[q.qType] || badgeStyles[1]}`;
+            lenBadge.textContent = q.typeBadge;
+            document.getElementById('qCategoryBadge').textContent = q.category;
+
+            const statusBadge = document.getElementById('qAttemptStatusBadge');
+            if (attempt) {
+                statusBadge.className = attempt.isCorrect
+                    ? 'text-xs font-extrabold px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300'
+                    : 'text-xs font-extrabold px-3 py-1 rounded-full bg-rose-100 text-rose-800 border border-rose-300';
+                statusBadge.innerHTML = `<i class="fa-solid fa-lock mr-1"></i>ప్రయత్నించారు - లాక్ చేయబడింది (Attempt Locked)`;
+            } else {
+                statusBadge.className = 'text-xs font-extrabold px-3 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-300';
+                statusBadge.innerHTML = `<i class="fa-solid fa-hand-pointer mr-1"></i>ఒకసారి మాత్రమే అవకాశం (Click once to answer)`;
+            }
+
+            // Question Visuals & Prompt
+            document.getElementById('qVisualEmoji').textContent = q.emoji;
+            document.getElementById('qVisualHint').textContent = q.visualHint;
+            document.getElementById('qBigSymbol').textContent = q.bigSymbol;
+            document.getElementById('qPromptTelugu').textContent = q.promptTe;
+
+            // Render 4 Jumbled Options
+            const optContainer = document.getElementById('optionsContainer');
+            optContainer.innerHTML = '';
+            const optionLetters = ['A', 'B', 'C', 'D'];
+
+            q.options.forEach((optText, oIdx) => {
+                const btn = document.createElement('button');
+                let baseClasses = 'w-full text-left p-4 rounded-2xl border-4 font-extrabold text-base sm:text-lg transition flex items-center justify-between gap-3 fun-shadow-sm ';
+
+                if (!attempt) {
+                    baseClasses += 'bg-white hover:bg-indigo-50 border-indigo-200 hover:border-indigo-500 text-slate-800 btn-bounce cursor-pointer';
+                    btn.onclick = () => handleOptionSelect(optText);
+                } else {
+                    btn.disabled = true;
+                    if (optText === q.correctAnswer) {
+                        baseClasses += 'bg-emerald-100 border-emerald-500 text-emerald-950';
+                    } else if (optText === attempt.selectedOption && !attempt.isCorrect) {
+                        baseClasses += 'bg-rose-100 border-rose-500 text-rose-950';
+                    } else {
+                        baseClasses += 'bg-slate-50 border-slate-200 text-slate-400 opacity-75';
+                    }
+                }
+
+                btn.className = baseClasses;
+
+                let rightIconHtml = '';
+                if (attempt) {
+                    if (optText === q.correctAnswer) {
+                        rightIconHtml = `<span class="bg-emerald-600 text-white text-xs sm:text-sm px-2.5 py-1 rounded-xl font-extrabold shrink-0">✓ సరైనది</span>`;
+                    } else if (optText === attempt.selectedOption && !attempt.isCorrect) {
+                        rightIconHtml = `<span class="bg-rose-600 text-white text-xs sm:text-sm px-2.5 py-1 rounded-xl font-extrabold shrink-0">✗ మీరు ఎంచుకున్నది</span>`;
+                    }
+                }
+
+                btn.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <span class="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-extrabold text-sm shrink-0">
+                            ${optionLetters[oIdx]}
+                        </span>
+                        <span class="eng-font tracking-wide">${optText}</span>
+                    </div>
+                    ${rightIconHtml}
+                `;
+
+                optContainer.appendChild(btn);
+            });
+
+            // Prev / Next button states
+            document.getElementById('btnPrevQ').disabled = (currentQIndex === 0);
+            const nextBtn = document.getElementById('btnNextQ');
+            if (currentQIndex === questions.length - 1) {
+                nextBtn.innerHTML = `<span>ఫలితాలు చూడండి (Finish) 🏁</span>`;
+            } else {
+                nextBtn.innerHTML = `<span>ముందుకు (Next) ➡️</span>`;
+            }
+
+            // Show or Hide Telugu Explanation Box
+            const expBox = document.getElementById('explanationBox');
+            if (attempt) {
+                expBox.classList.remove('hidden');
+                if (attempt.isCorrect) {
+                    expBox.className = 'mt-6 rounded-3xl p-5 sm:p-6 border-4 bg-emerald-50 border-emerald-400 animate-pop';
+                    document.getElementById('expStatusIcon').className = 'w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center text-2xl shrink-0 font-bold';
+                    document.getElementById('expStatusIcon').textContent = '🎉';
+                    document.getElementById('expStatusTitle').className = 'text-lg sm:text-xl font-extrabold text-emerald-900';
+                    document.getElementById('expStatusTitle').textContent = 'శభాష్! మీరు సరైన సమాధానం ఎంచుకున్నారు! (Correct Answer)';
+                } else {
+                    expBox.className = 'mt-6 rounded-3xl p-5 sm:p-6 border-4 bg-rose-50 border-rose-400 animate-pop';
+                    document.getElementById('expStatusIcon').className = 'w-12 h-12 rounded-2xl bg-rose-500 text-white flex items-center justify-center text-2xl shrink-0 font-bold';
+                    document.getElementById('expStatusIcon').textContent = '💡';
+                    document.getElementById('expStatusTitle').className = 'text-lg sm:text-xl font-extrabold text-rose-900';
+                    document.getElementById('expStatusTitle').textContent = 'అయ్యో! ఇది తప్పు సమాధానం. క్రింది తెలుగు S+V+O వివరణ చదివి నేర్చుకోండి:';
+                }
+
+                document.getElementById('expCorrectAnswerLine').innerHTML =
+                    `సరైన సమాధానం (Correct Answer): <span class="bg-yellow-300 text-indigo-950 px-2.5 py-0.5 rounded-lg font-extrabold eng-font border border-amber-400">${q.correctAnswer}</span>`;
+
+                // Populate 4 Formula Breakdown Cards
+                const cardsContainer = document.getElementById('expFormulaCards');
+                cardsContainer.innerHTML = q.formulaParts.map(fp => `
+                    <div class="bg-indigo-50 border-2 border-indigo-200 rounded-xl p-2.5">
+                        <div class="text-[11px] font-extrabold text-indigo-600 uppercase">${fp.label}</div>
+                        <div class="text-sm sm:text-base font-extrabold text-indigo-950 eng-font mt-0.5">${fp.val}</div>
+                    </div>
+                `).join('');
+
+                // Populate Long Telugu Explanation
+                document.getElementById('expLongTextTelugu').innerHTML = q.longExplanationTe;
+            } else {
+                expBox.classList.add('hidden');
+            }
+
+            if (!document.getElementById('questionPaletteContainer').classList.contains('hidden')) {
+                renderQuestionPalette();
+            }
+        }
+
+        function handleOptionSelect(selectedOption) {
+            // Strictly enforce ONLY ONE TIME ATTEMPT per question
+            if (userAttempts[currentQIndex]) return;
+
+            const q = questions[currentQIndex];
+            const isCorrect = (selectedOption === q.correctAnswer);
+
+            userAttempts[currentQIndex] = {
+                selectedOption,
+                isCorrect
+            };
+
+            playFeedbackSound(isCorrect);
+
+            // Speak the English SVO sentence aloud to reinforce learning
+            if (q.sentenceObj) {
+                speakEnglishText(q.sentenceObj.engSentence);
+            }
+
+            updateStatsBar();
+            renderCurrentQuestion();
+        }
+
+        function navigateQuestion(direction) {
+            const nextIdx = currentQIndex + direction;
+            if (nextIdx >= 0 && nextIdx < questions.length) {
+                currentQIndex = nextIdx;
+                renderCurrentQuestion();
+            } else if (nextIdx >= questions.length) {
+                switchTab('results');
+            }
+        }
+
+        /********************************************************************
+         * 6. MEMORY GAME (FLIP CARDS: ENGLISH SVO SENTENCE <-> TELUGU MEANING)
+         ********************************************************************/
+        let memoryCardsData = [];
+        let memoryFlippedIndices = [];
+        let memoryMatchedIds = new Set();
+        let memoryMoves = 0;
+        let memoryLockBoard = false;
+
+        function initMemoryGame() {
+            memoryFlippedIndices = [];
+            memoryMatchedIds.clear();
+            memoryMoves = 0;
+            memoryLockBoard = false;
+
+            document.getElementById('memMatchesCount').textContent = '0';
+            document.getElementById('memMovesCount').textContent = '0';
+            document.getElementById('memoryWinBanner').classList.add('hidden');
+            document.getElementById('memoryLastMatchBox').classList.add('hidden');
+
+            // Pick 6 random SVO sentences (6 pairs = 12 cards)
+            const chosenSentences = shuffleArray(SENTENCE_BANK).slice(0, 6);
+            const deck = [];
+
+            chosenSentences.forEach((sObj, idx) => {
+                deck.push({
+                    pairId: idx,
+                    sentenceObj: sObj,
+                    type: 'english',
+                    displayMain: `${sObj.emoji} ${sObj.engSentence}`,
+                    displaySub: 'English (S + V + O)',
+                    badgeColor: 'bg-indigo-600 text-white'
+                });
+                deck.push({
+                    pairId: idx,
+                    sentenceObj: sObj,
+                    type: 'telugu',
+                    displayMain: sObj.teSentence,
+                    displaySub: 'తెలుగు (కర్త + కర్మ + క్రియ)',
+                    badgeColor: 'bg-pink-600 text-white'
+                });
+            });
+
+            memoryCardsData = shuffleArray(deck);
+            renderMemoryGrid();
+        }
+
+        function renderMemoryGrid() {
+            const grid = document.getElementById('memoryGrid');
+            grid.innerHTML = '';
+
+            memoryCardsData.forEach((card, idx) => {
+                const isFlipped = memoryFlippedIndices.includes(idx) || memoryMatchedIds.has(card.pairId);
+                const isMatched = memoryMatchedIds.has(card.pairId);
+
+                const cardEl = document.createElement('div');
+                cardEl.className = 'perspective-1000 h-28 sm:h-32 cursor-pointer select-none';
+                cardEl.onclick = () => flipMemoryCard(idx);
+
+                cardEl.innerHTML = `
+                    <div class="w-full h-full relative transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}">
+                        <!-- Front of Card -->
+                        <div class="absolute inset-0 backface-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 rounded-2xl border-4 border-white fun-shadow-sm flex flex-col items-center justify-center text-white">
+                            <span class="text-xl sm:text-2xl font-extrabold eng-font">S + V + O ?</span>
+                            <span class="text-[11px] font-bold text-yellow-200 mt-1">తిప్పండి (Tap)</span>
+                        </div>
+                        <!-- Back of Card -->
+                        <div class="absolute inset-0 backface-hidden rotate-y-180 rounded-2xl border-4 ${isMatched ? 'bg-emerald-50 border-emerald-500' : 'bg-white border-pink-400'} fun-shadow-sm flex flex-col items-center justify-center p-2 text-center">
+                            <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full ${card.badgeColor} mb-1 line-clamp-1">${card.displaySub}</span>
+                            <div class="text-xs sm:text-sm font-extrabold text-slate-900 eng-font leading-snug">${card.displayMain}</div>
+                            ${isMatched ? '<span class="text-[10px] text-emerald-600 font-extrabold mt-1">✓ జత కుదిరింది!</span>' : ''}
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(cardEl);
+            });
+        }
+
+        function flipMemoryCard(idx) {
+            if (memoryLockBoard) return;
+            if (memoryFlippedIndices.includes(idx)) return;
+            const card = memoryCardsData[idx];
+            if (memoryMatchedIds.has(card.pairId)) return;
+
+            if (card.type === 'english') {
+                speakEnglishText(card.sentenceObj.engSentence);
+            }
+
+            memoryFlippedIndices.push(idx);
+            renderMemoryGrid();
+
+            if (memoryFlippedIndices.length === 2) {
+                memoryMoves++;
+                document.getElementById('memMovesCount').textContent = memoryMoves;
+                const [firstIdx, secondIdx] = memoryFlippedIndices;
+                const firstCard = memoryCardsData[firstIdx];
+                const secondCard = memoryCardsData[secondIdx];
+
+                if (firstCard.pairId === secondCard.pairId) {
+                    memoryMatchedIds.add(firstCard.pairId);
+                    memoryPairsCompletedTotal++;
+                    memoryFlippedIndices = [];
+                    document.getElementById('memMatchesCount').textContent = memoryMatchedIds.size;
+                    playFeedbackSound(true);
+
+                    const s = firstCard.sentenceObj;
+                    const matchBox = document.getElementById('memoryLastMatchBox');
+                    matchBox.classList.remove('hidden');
+                    matchBox.innerHTML = `🎉 <b>జత కుదిరింది:</b> <span class="eng-font text-base text-indigo-800">${s.emoji} ${s.engSentence}</span> ➔ <b>${s.teSentence}</b> (Subject: ${s.sMeta.eng} | Verb: ${s.correctVerbEng} | Object: ${s.oMeta.eng})`;
+
+                    updateStatsBar();
+                    renderMemoryGrid();
+
+                    if (memoryMatchedIds.size === 6) {
+                        document.getElementById('memoryWinBanner').classList.remove('hidden');
+                    }
+                } else {
+                    memoryLockBoard = true;
+                    playFeedbackSound(false);
+                    setTimeout(() => {
+                        memoryFlippedIndices = [];
+                        memoryLockBoard = false;
+                        renderMemoryGrid();
+                    }, 950);
+                }
+            }
+        }
+
+        /********************************************************************
+         * 7. MATCH THE FOLLOWING GAME (ENGLISH SVO <-> TELUGU MEANING)
+         ********************************************************************/
+        let matchRoundItems = [];
+        let matchLeftItems = [];
+        let matchRightItems = [];
+        let selectedLeftId = null;
+        let selectedRightId = null;
+        let matchedSet = new Set();
+        let matchRoundsCompleted = 0;
+
+        function initMatchGame() {
+            selectedLeftId = null;
+            selectedRightId = null;
+            matchedSet.clear();
+            document.getElementById('matchScoreCount').textContent = '0';
+
+            const sample = shuffleArray(SENTENCE_BANK).slice(0, 6);
+            matchRoundItems = sample.map((sObj, idx) => ({
+                id: idx,
+                sentenceObj: sObj
+            }));
+
+            matchLeftItems = shuffleArray([...matchRoundItems]);
+            matchRightItems = shuffleArray([...matchRoundItems]);
+
+            document.getElementById('matchFeedbackBox').className = 'bg-amber-50 border-2 border-amber-300 rounded-2xl p-4 text-center text-sm sm:text-base font-bold text-slate-700';
+            document.getElementById('matchFeedbackBox').innerHTML = '👆 జత చేయడానికి ఎడమ వైపు ఒక English SVO వాక్యాన్ని, కుడి వైపు దాని తెలుగు అర్థాన్ని నొక్కండి!';
+
+            renderMatchColumns();
+        }
+
+        function renderMatchColumns() {
+            const leftCol = document.getElementById('matchLeftCol');
+            const rightCol = document.getElementById('matchRightCol');
+            leftCol.innerHTML = '';
+            rightCol.innerHTML = '';
+
+            matchLeftItems.forEach(item => {
+                const s = item.sentenceObj;
+                const isMatched = matchedSet.has(item.id);
+                const isSelected = (selectedLeftId === item.id);
+                const btn = document.createElement('button');
+                btn.disabled = isMatched;
+
+                let cls = 'w-full p-3.5 rounded-2xl border-4 font-extrabold text-sm sm:text-lg eng-font transition flex items-center justify-between text-left gap-2 ';
+                if (isMatched) {
+                    cls += 'bg-emerald-100 border-emerald-500 text-emerald-900 opacity-80';
+                } else if (isSelected) {
+                    cls += 'bg-indigo-600 border-indigo-800 text-white scale-[1.02] fun-shadow-sm';
+                } else {
+                    cls += 'bg-white hover:bg-indigo-50 border-indigo-200 text-indigo-950 fun-shadow-sm btn-bounce';
+                }
+                btn.className = cls;
+                btn.innerHTML = `
+                    <span>${s.emoji} ${s.engSentence}</span>
+                    <span class="text-xs font-sans px-2 py-0.5 rounded-lg shrink-0 ${isMatched ? 'bg-emerald-600 text-white' : 'bg-indigo-100 text-indigo-800'}">
+                        ${isMatched ? '✓ జతయింది' : 'S+V+O'}
+                    </span>
+                `;
+                btn.onclick = () => {
+                    speakEnglishText(s.engSentence);
+                    selectMatchSide('left', item.id);
+                };
+                leftCol.appendChild(btn);
+            });
+
+            matchRightItems.forEach(item => {
+                const s = item.sentenceObj;
+                const isMatched = matchedSet.has(item.id);
+                const isSelected = (selectedRightId === item.id);
+                const btn = document.createElement('button');
+                btn.disabled = isMatched;
+
+                let cls = 'w-full p-3.5 rounded-2xl border-4 font-extrabold text-sm sm:text-base transition flex items-center justify-between text-left gap-2 ';
+                if (isMatched) {
+                    cls += 'bg-emerald-100 border-emerald-500 text-emerald-900 opacity-80';
+                } else if (isSelected) {
+                    cls += 'bg-pink-600 border-pink-800 text-white scale-[1.02] fun-shadow-sm';
+                } else {
+                    cls += 'bg-white hover:bg-pink-50 border-pink-200 text-slate-800 fun-shadow-sm btn-bounce';
+                }
+                btn.className = cls;
+                btn.innerHTML = `
+                    <div>
+                        <div class="font-extrabold">${s.teSentence}</div>
+                        <div class="text-[11px] opacity-80">కర్త: ${s.sMeta.te} | క్రియ: ${s.verbTe}</div>
+                    </div>
+                    ${isMatched ? '<span class="text-emerald-600 font-extrabold text-lg">✓</span>' : ''}
+                `;
+                btn.onclick = () => selectMatchSide('right', item.id);
+                rightCol.appendChild(btn);
+            });
+        }
+
+        function selectMatchSide(side, id) {
+            if (side === 'left') {
+                selectedLeftId = id;
+            } else {
+                selectedRightId = id;
+            }
+            renderMatchColumns();
+
+            if (selectedLeftId !== null && selectedRightId !== null) {
+                const fb = document.getElementById('matchFeedbackBox');
+                if (selectedLeftId === selectedRightId) {
+                    const matchedItem = matchRoundItems.find(x => x.id === selectedLeftId);
+                    const s = matchedItem.sentenceObj;
+                    matchedSet.add(selectedLeftId);
+                    matchGamePointsTotal++;
+                    selectedLeftId = null;
+                    selectedRightId = null;
+                    playFeedbackSound(true);
+
+                    document.getElementById('matchScoreCount').textContent = matchedSet.size;
+                    updateStatsBar();
+                    renderMatchColumns();
+
+                    fb.className = 'bg-emerald-100 border-2 border-emerald-400 rounded-2xl p-4 text-left text-sm sm:text-base text-emerald-950 animate-pop';
+                    fb.innerHTML = `
+                        <div class="font-extrabold text-emerald-800 mb-1">🎉 అద్భుతం! సరైన జత: ${s.emoji} ${s.engSentence} = ${s.teSentence}</div>
+                        <div class="text-xs sm:text-sm font-medium">Subject (కర్త): <b>${s.sMeta.eng} (${s.sMeta.te})</b> • Verb (క్రియ): <b>${s.correctVerbEng} (${s.verbTe})</b> • Object (కర్మ): <b>${s.oMeta.eng} (${s.oMeta.te})</b></div>
+                    `;
+
+                    if (matchedSet.size === 6) {
+                        matchRoundsCompleted++;
+                        document.getElementById('matchRoundsWon').textContent = matchRoundsCompleted;
+                    }
+                } else {
+                    playFeedbackSound(false);
+                    fb.className = 'bg-rose-100 border-2 border-rose-400 rounded-2xl p-4 text-center text-sm sm:text-base font-extrabold text-rose-900 animate-pop';
+                    fb.innerHTML = '❌ ఆ రెండూ సరైన జత కాదు! మళ్ళీ ప్రయత్నించండి.';
+                    setTimeout(() => {
+                        selectedLeftId = null;
+                        selectedRightId = null;
+                        renderMatchColumns();
+                    }, 700);
+                }
+            }
+        }
+
+        /********************************************************************
+         * 8. FORMSPREE SUBMISSION & EMAIL REPORT (https://formspree.io/f/xqppgkaw)
+         ********************************************************************/
+        function buildResultsPayload() {
+            const total = questions.length;
+            const attemptedKeys = Object.keys(userAttempts);
+            const attempted = attemptedKeys.length;
+            const notAttempted = total - attempted;
+            const correct = attemptedKeys.filter(k => userAttempts[k].isCorrect).length;
+            const wrong = attempted - correct;
+            const accuracy = attempted > 0 ? `${Math.round((correct / attempted) * 100)}%` : '0%';
+            const studentName = document.getElementById('studentNameInput').value.trim() || 'Student (పేరు రాయలేదు)';
+            const studentClass = document.getElementById('studentClassInput').value.trim() || 'N/A';
+            const studentRoll = document.getElementById('studentRollInput').value.trim() || 'N/A';
+            const screenTimeFormatted = formatTime(elapsedSeconds);
+
+            // Build a detailed log of attempted questions
+            const attemptedLogLines = attemptedKeys.slice(0, 60).map(k => {
+                const q = questions[k];
+                const att = userAttempts[k];
+                return `Q${Number(k) + 1} [${q.typeBadge}]: ${q.bigSymbol} -> Chosen: "${att.selectedOption}" | Correct: "${q.correctAnswer}" (${att.isCorrect ? 'CORRECT' : 'WRONG'})`;
+            });
+
+            return {
+                _subject: `JACOB GAPP SCHOOL, PALADUGU (by Bro. Balaswamy S.M) - English SVO Report: ${studentName} (${studentClass}, Roll: ${studentRoll})`,
+                school_institution: 'JACOB GAPP SCHOOL, PALADUGU by Bro. Balaswamy S.M',
+                target_recipient_email: 'balaswamysm@gmail.com',
+                email: 'balaswamysm@gmail.com',
+                exercise_topic: 'English Subject + Verb + Object (SVO) Practice Suite (7 Exercise Types) - Telugu Explanation',
+                student_name: studentName,
+                student_class: studentClass,
+                student_roll_number: studentRoll,
+                total_questions: total,
+                questions_attempted: attempted,
+                questions_not_attempted: notAttempted,
+                correct_answers: correct,
+                wrong_answers: wrong,
+                percentage_score: accuracy,
+                screen_timing: screenTimeFormatted,
+                screen_timing_seconds: elapsedSeconds,
+                memory_game_pairs_matched: memoryPairsCompletedTotal,
+                match_following_score: matchGamePointsTotal,
+                attempted_questions_log: attemptedLogLines.join('\n') || 'No questions attempted yet.',
+                submitted_at: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+                message: `JACOB GAPP SCHOOL, PALADUGU (by Bro. Balaswamy S.M)\n` +
+                         `English Subject + Verb + Object (SVO) Results for balaswamysm@gmail.com:\n` +
+                         `విద్యార్థి పేరు (Student): ${studentName}\n` +
+                         `తరగతి (Class): ${studentClass}\n` +
+                         `రోల్ నంబర్ (Roll No): ${studentRoll}\n` +
+                         `మొత్తం ప్రశ్నలు (Total Questions): ${total}\n` +
+                         `ప్రయత్నించినవి (Attempted): ${attempted}\n` +
+                         `ప్రయత్నించనివి (Not Attempted): ${notAttempted}\n` +
+                         `సరైన సమాధానాలు (Correct): ${correct}\n` +
+                         `తప్పు సమాధానాలు (Wrong): ${wrong}\n` +
+                         `శాతం (Percentage Score): ${accuracy}\n` +
+                         `మెమరీ గేమ్ జతలు (Memory Game Pairs): ${memoryPairsCompletedTotal}\n` +
+                         `జతపరచుట స్కోరు (Match Following Score): ${matchGamePointsTotal}\n` +
+                         `స్క్రీన్ సమయం (Screen Timing): ${screenTimeFormatted}\n\n` +
+                         `Attempted Log:\n${attemptedLogLines.join('\n') || 'None'}`
+            };
+        }
+
+        async function submitResultsToFormspree(isAutoTrigger = false) {
+            const banner = document.getElementById('formspreeStatusBanner');
+            const sendBtn = document.getElementById('btnSendFormspree');
+            const payload = buildResultsPayload();
+
+            banner.classList.remove('hidden');
+            banner.className = 'rounded-2xl p-3.5 text-sm font-extrabold bg-blue-100 text-blue-900 border-2 border-blue-300';
+            banner.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-2"></i>ఫలితాలను Formspree (balaswamysm@gmail.com) కు పంపుతున్నాము... దయచేసి వేచి ఉండండి...`;
+
+            if (sendBtn) sendBtn.disabled = true;
+
+            try {
+                const response = await fetch('https://formspree.io/f/xqppgkaw', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    banner.className = 'rounded-2xl p-3.5 text-sm font-extrabold bg-emerald-100 text-emerald-900 border-2 border-emerald-400';
+                    banner.innerHTML = `✅ అభినందనలు! మీ ఫలితాలు (Attempted: ${payload.questions_attempted}, Not Attempted: ${payload.questions_not_attempted}, Correct: ${payload.correct_answers}, Screen Time: ${payload.screen_timing}) విజయవంతంగా <b>https://formspree.io/f/xqppgkaw</b> (balaswamysm@gmail.com) కు పంపబడ్డాయి!`;
+                } else {
+                    throw new Error('Formspree returned non-OK status');
+                }
+            } catch (err) {
+                banner.className = 'rounded-2xl p-3.5 text-sm font-extrabold bg-amber-100 text-amber-900 border-2 border-amber-400';
+                banner.innerHTML = `⚠️ నెట్‌వర్క్ కారణంగా నేరుగా పంపడంలో ఆలస్యమైంది. క్రింది <b>"Send Direct Email (balaswamysm@gmail.com)"</b> బటన్ నొక్కి ఇమెయిల్ పంపవచ్చు.`;
+            } finally {
+                if (sendBtn) sendBtn.disabled = false;
+            }
+        }
+
+        function sendDirectMailtoFallback() {
+            const payload = buildResultsPayload();
+            const subject = encodeURIComponent(payload._subject);
+            const body = encodeURIComponent(payload.message);
+            window.location.href = `mailto:balaswamysm@gmail.com?subject=${subject}&body=${body}`;
+        }
+
+        /********************************************************************
+         * 9. TABS & SVO REFERENCE MODAL
+         ********************************************************************/
+        function switchTab(tabName) {
+            const tabs = ['quiz', 'memory', 'match', 'results'];
+            tabs.forEach(t => {
+                const sec = document.getElementById(`section-${t}`);
+                const btn = document.getElementById(`tabBtn-${t}`);
+                if (t === tabName) {
+                    sec.classList.remove('hidden');
+                    btn.className = 'tab-btn bg-indigo-600 text-white font-extrabold py-3 px-3 rounded-2xl fun-shadow btn-bounce flex items-center justify-center gap-2 border-2 border-indigo-800 text-sm sm:text-base';
+                } else {
+                    sec.classList.add('hidden');
+                    btn.className = 'tab-btn bg-white text-slate-700 hover:bg-amber-50 font-extrabold py-3 px-3 rounded-2xl fun-shadow btn-bounce flex items-center justify-center gap-2 border-2 border-slate-200 text-sm sm:text-base';
+                }
+            });
+
+            updateStatsBar();
+
+            if (tabName === 'results' && !hasAutoSubmittedOnResults) {
+                hasAutoSubmittedOnResults = true;
+                submitResultsToFormspree(true);
+            }
+        }
+
+        function populateChartModal() {
+            const grid = document.getElementById('chartModalGrid');
+            grid.innerHTML = SENTENCE_BANK.map(s => `
+                <div onclick="speakEnglishText('${s.engSentence.replace(/'/g, "\\'")}')" class="bg-indigo-50 hover:bg-amber-50 cursor-pointer border-2 border-indigo-200 rounded-2xl p-3 transition">
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="text-[10px] font-extrabold ${s.sMeta.isThirdSingular ? 'bg-pink-600' : 'bg-indigo-600'} text-white px-2 py-0.5 rounded-lg">
+                            ${s.sMeta.isThirdSingular ? 'Singular (+s Verb)' : 'Base Verb'}
+                        </span>
+                        <span class="text-xs text-indigo-600"><i class="fa-solid fa-volume-high"></i> వినండి</span>
+                    </div>
+                    <div class="text-base font-extrabold text-indigo-950 eng-font my-1">
+                        ${s.emoji} ${s.engSentence}
+                    </div>
+                    <div class="text-xs font-bold text-pink-800">${s.teSentence}</div>
+                    <div class="text-[11px] text-slate-600 mt-1">
+                        <b>S:</b> ${s.sMeta.eng} | <b>V:</b> ${s.correctVerbEng} | <b>O:</b> ${s.oMeta.eng}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openChartModal() {
+            document.getElementById('chartModal').classList.remove('hidden');
+        }
+
+        function closeChartModal() {
+            document.getElementById('chartModal').classList.add('hidden');
+        }
+
+        /********************************************************************
+         * 10. INITIALIZATION ON WINDOW LOAD
+         ********************************************************************/
+        window.onload = function () {
+            questions = generateAllQuestions();
+            currentQIndex = 0;
+            userAttempts = {};
+
+            updateStatsBar();
+            renderCurrentQuestion();
+            initMemoryGame();
+            initMatchGame();
+            populateChartModal();
+            startLiveScreenTimer();
+        };
+    </script>
+</body>
+</html>
